@@ -19,7 +19,6 @@ export default function Navbar() {
     { key: "about", href: "/about" },
     { key: "services", href: "/services" },
     { key: "doctors", href: "/doctors" },
-    { key: "appointments", href: "/appointments" },
     { key: "contact", href: "/contact" },
   ] as const;
 
