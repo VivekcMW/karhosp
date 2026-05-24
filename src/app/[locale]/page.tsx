@@ -157,10 +157,28 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-          <div className="text-center mt-8">
-            <Link href={lp("/services")} className="inline-flex items-center gap-1.5 text-[#0f766e] font-semibold text-sm hover:underline">
-              View all services <ChevronRight className="w-4 h-4" />
-            </Link>
+          {/* ─── CALL TO BOOK ─── */}
+          <div className="reveal mt-10 rounded-2xl bg-gradient-to-r from-[#0f766e] to-[#0d9488] px-6 py-7 sm:px-10 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="text-center sm:text-left">
+              <h3 className="text-white font-bold text-lg sm:text-xl leading-snug">Ready to book your eye check-up?</h3>
+              <p className="text-teal-100 text-sm mt-1">Our specialists are available Mon – Sat, 9 AM – 6 PM</p>
+            </div>
+            <div className="flex flex-col xs:flex-row gap-3 shrink-0 w-full sm:w-auto">
+              <a
+                href="tel:+919019725332"
+                className="inline-flex items-center justify-center gap-2 bg-white text-[#0f766e] font-semibold px-5 py-3 rounded-xl hover:bg-teal-50 active:scale-[0.97] transition-all text-sm shadow-sm"
+              >
+                <Phone className="w-4 h-4" />
+                Call: +91 90197 25332
+              </a>
+              <Link
+                href={lp("/appointments")}
+                className="inline-flex items-center justify-center gap-2 bg-amber-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-amber-600 active:scale-[0.97] transition-all text-sm shadow-sm"
+              >
+                <Calendar className="w-4 h-4" />
+                Book Online
+              </Link>
+            </div>
           </div>
         </div>
       </section>
