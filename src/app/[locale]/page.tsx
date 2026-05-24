@@ -83,13 +83,13 @@ export default function HomePage() {
                 <Calendar className="w-4 h-4" />
                 {t("heroCta")}
               </Link>
-              <Link
-                href={lp("/services")}
+              <a
+                href="tel:+919019725332"
                 className="inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-white font-medium px-6 py-3 rounded-xl transition-colors border border-white/30 w-full sm:w-auto"
               >
-                {t("heroCtaSecondary")}
-                <ChevronRight className="w-4 h-4" />
-              </Link>
+                <Phone className="w-4 h-4" />
+                Call for Appointment
+              </a>
             </div>
           </div>
 
