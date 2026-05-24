@@ -77,56 +77,48 @@ export default function DoctorsPage() {
               key={doc.name}
               className={`reveal-scale reveal-d${(i % 3) + 1} bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group`}
             >
-              {/* Photo box */}
-              <div className="mx-3 mt-3 rounded-2xl bg-[#ccfbf1] overflow-hidden h-64 flex items-end justify-center relative">
+              {/* Photo */}
+              <div className="mx-3 mt-3 rounded-2xl bg-[#ccfbf1] overflow-hidden h-56 flex items-end justify-center">
                 <img
                   src={doc.photo}
                   alt={doc.name}
-                  className="img-zoom w-full h-[92%] object-cover object-top"
+                  className="img-zoom w-full h-[94%] object-cover object-top"
                 />
               </div>
 
               {/* Info */}
-              <div className="px-5 py-4 text-center">
-                <h3 className="font-bold text-stone-800 text-lg leading-tight">{doc.name}</h3>
-                <p className="text-stone-500 text-sm mt-0.5">{doc.spec}</p>
+              <div className="px-5 pt-4 pb-5 flex flex-col gap-1">
+                <h3 className="font-bold text-stone-800 text-lg leading-tight text-center">{doc.name}</h3>
+                <p className="text-[#0f766e] font-semibold text-sm text-center">{doc.spec}</p>
+                <p className="text-stone-400 text-xs text-center leading-snug">{doc.qual}</p>
 
-                {/* Consultation days */}
-                <div className="flex items-center justify-center gap-1.5 mt-2 text-xs text-[#0f766e] font-medium">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>{doc.consults}</span>
+                {/* Experience + Consultation */}
+                <div className="flex items-center justify-center gap-3 mt-2">
+                  <span className="text-xs text-stone-500">
+                    <span className="font-bold text-stone-700">{doc.exp}+</span> yrs exp
+                  </span>
+                  <span className="w-px h-3.5 bg-stone-200" />
+                  <div className="flex items-center gap-1 text-xs text-[#0f766e] font-medium">
+                    <Calendar className="w-3 h-3 shrink-0" />
+                    <span>{doc.consults}</span>
+                  </div>
                 </div>
 
-                {/* Divider */}
-                <div className="border-t border-stone-100 mt-3 pt-3 flex items-center justify-center gap-4">
-                  <a href="#" aria-label="Facebook" className="w-8 h-8 rounded-full bg-[#f0fdfa] flex items-center justify-center text-[#0f766e] hover:bg-[#0f766e] hover:text-white transition-colors">
-                    {/* Facebook */}
-                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                    </svg>
-                  </a>
-                  <a href="#" aria-label="X / Twitter" className="w-8 h-8 rounded-full bg-[#f0fdfa] flex items-center justify-center text-[#0f766e] hover:bg-[#0f766e] hover:text-white transition-colors">
-                    {/* X / Twitter */}
-                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                  </a>
-                  <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full bg-[#f0fdfa] flex items-center justify-center text-[#0f766e] hover:bg-[#0f766e] hover:text-white transition-colors">
-                    {/* Instagram */}
-                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                      <circle cx="12" cy="12" r="4"/>
-                      <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
-                    </svg>
-                  </a>
-                </div>
+                {/* Book button */}
+                <Link
+                  href={lp("/appointments")}
+                  className="mt-3 flex items-center justify-center gap-1.5 bg-[#f0fdfa] hover:bg-[#0f766e] text-[#0f766e] hover:text-white text-xs font-semibold py-2.5 rounded-xl transition-colors"
+                >
+                  <Calendar className="w-3.5 h-3.5 shrink-0" />
+                  Book Appointment
+                </Link>
               </div>
             </div>
           ))}
         </div>
 
         {/* Book CTA */}
-        <div className="reveal text-center mt-12">
+        <div className="text-center mt-12">
           <p className="text-stone-500 text-sm mb-4">Want to consult one of our specialists?</p>
           <Link
             href={lp("/appointments")}
