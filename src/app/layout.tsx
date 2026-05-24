@@ -12,6 +12,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Karwar Eye Hospital",
   description: "World-class eye care in Karwar, Karnataka. Cataract, LASIK, Glaucoma, Retina treatments.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     title: "Karwar Eye Hospital",
     description: "World-class eye care in Karwar, Karnataka.",
