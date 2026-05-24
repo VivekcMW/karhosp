@@ -10,9 +10,20 @@ import { useEffect } from "react";
  */
 export default function RevealObserver() {
   useEffect(() => {
-    // Signal CSS that JS is ready — elements become opacity:0 only now
+    // Step 1: pre-mark elements already in the viewport so they are
+    // never hidden when data-reveal-ready is set (prevents invisible flash)
+    const allTargets = document.querySelectorAll<Element>(".reveal, .reveal-scale");
+    allTargets.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("visible");
+      }
+    });
+
+    // Step 2: now enable CSS hiding — only off-screen elements go opacity:0
     document.documentElement.setAttribute("data-reveal-ready", "true");
 
+    // Step 3: observe only elements not already visible
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -22,11 +33,14 @@ export default function RevealObserver() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -48px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
     );
 
-    const targets = document.querySelectorAll(".reveal, .reveal-scale");
-    targets.forEach((el) => observer.observe(el));
+    allTargets.forEach((el) => {
+      if (!el.classList.contains("visible")) {
+        observer.observe(el);
+      }
+    });
 
     return () => observer.disconnect();
   }, []);
