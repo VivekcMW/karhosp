@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-teal-600 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-teal-200">
-          <span>{t("rights")}</span>
+          <span>{t("rights", { year: new Date().getFullYear() })}</span>
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <div className="flex gap-4">
               <Link href={localePath("/privacy-policy")} className="hover:text-white transition-colors">{t("privacyPolicy")}</Link>
