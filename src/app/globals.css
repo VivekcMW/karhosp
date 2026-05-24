@@ -1,26 +1,222 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fefdf8;
+  --foreground: #1c1917;
+
+  /* Hospital brand tokens */
+  --color-primary:        #0f766e;
+  --color-primary-hover:  #0d6b63;
+  --color-primary-light:  #f0fdfa;
+  --color-secondary:      #d97706;
+  --color-secondary-hover:#b45309;
+  --color-accent:         #14b8a6;
+  --color-border:         #ccfbf1;
+  --color-muted:          #f5f5f4;
+  --color-muted-fg:       #78716c;
+  --color-surface:        #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins);
+
+  /* Brand palette */
+  --color-primary:        #0f766e;
+  --color-primary-hover:  #0d6b63;
+  --color-primary-light:  #f0fdfa;
+  --color-secondary:      #d97706;
+  --color-accent:         #14b8a6;
+  --color-muted:          #f5f5f4;
+  --color-muted-fg:       #78716c;
+  --color-border:         #e7e5e4;
+  --color-surface:        #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== DARK MODE ===== */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Body */
+html.dark body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* White / warm-white backgrounds → dark slate */
+html.dark .bg-white                     { background-color: #1e293b; }
+html.dark [class*="bg-[#fefdf8]"]       { background-color: #0f172a; }
+html.dark [class*="bg-[#f0fdfa]"]       { background-color: #0c2218; }
+
+/* Text */
+html.dark .text-stone-800 { color: #f1f5f9; }
+html.dark .text-stone-700 { color: #e2e8f0; }
+html.dark .text-stone-600 { color: #cbd5e1; }
+html.dark .text-stone-500 { color: #94a3b8; }
+
+/* Primary brand text → accent teal */
+html.dark [class*="text-[#0f766e]"] { color: #2dd4bf; }
+
+/* Borders */
+html.dark .border-stone-100 { border-color: #1e293b; }
+html.dark .border-stone-200 { border-color: #334155; }
+html.dark [class*="border-stone-100"] { border-color: #1e293b; }
+html.dark [class*="border-stone-200"] { border-color: #334155; }
+
+/* Form inputs */
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder { color: #64748b; }
+html.dark input:focus,
+html.dark select:focus,
+html.dark textarea:focus { border-color: #0f766e; outline: none; }
+
+/* Smooth transitions on theme switch */
+html.dark *,
+html *,
+html *::before,
+html *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* ===================================================
+   ANIMATIONS & SCROLL REVEAL
+   =================================================== */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Hero entrance — runs on page load */
+.hero-badge  { animation: fadeIn        0.5s  cubic-bezier(0.22,1,0.36,1) both; }
+.hero-title  { animation: fadeInUp      0.7s  cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.1s; }
+.hero-sub    { animation: fadeInUp      0.7s  cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.22s; }
+.hero-cta    { animation: fadeInUp      0.6s  cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.35s; }
+.hero-card   { animation: slideInRight  0.8s  cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.25s; }
+
+/* Scroll-reveal base — hidden until .visible is added by RevealObserver */
+html[data-reveal-ready] .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity  0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+html[data-reveal-ready] .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger helpers */
+.reveal-d1 { --reveal-delay:  80ms; }
+.reveal-d2 { --reveal-delay: 160ms; }
+.reveal-d3 { --reveal-delay: 240ms; }
+.reveal-d4 { --reveal-delay: 320ms; }
+.reveal-d5 { --reveal-delay: 400ms; }
+.reveal-d6 { --reveal-delay: 480ms; }
+.reveal-d7 { --reveal-delay: 560ms; }
+.reveal-d8 { --reveal-delay: 640ms; }
+
+/* Scale variant (for cards) */
+html[data-reveal-ready] .reveal-scale {
+  opacity: 0;
+  transform: scale(0.96) translateY(16px);
+  transition:
+    opacity   0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+html[data-reveal-ready] .reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-badge, .hero-title, .hero-sub, .hero-cta, .hero-card { animation: none; }
+  html[data-reveal-ready] .reveal,
+  html[data-reveal-ready] .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ===================================================
+   PREMIUM MICRO-INTERACTIONS
+   =================================================== */
+
+/* Subtle press feedback on all buttons */
+button:not([disabled]):active {
+  transform: scale(0.97);
+  transition: transform 80ms ease !important;
+}
+
+/* Image zoom inside card on hover — apply .img-zoom to <img> inside a group card */
+.group:hover .img-zoom {
+  transform: scale(1.06);
+}
+.img-zoom {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Animated underline for text links */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+.link-underline:hover::after {
+  width: 100%;
 }

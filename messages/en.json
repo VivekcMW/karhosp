@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "doctors": "Doctors",
+    "appointments": "Book Appointment",
+    "contact": "Contact",
+    "switchLang": "ಕನ್ನಡ"
+  },
+  "home": {
+    "heroTitle": "Caring for Your Vision,",
+    "heroTitleSpan": "Changing Lives",
+    "heroSubtitle": "Karwar Eye Hospital brings world-class eye care to the heart of coastal Karnataka. Expert doctors, modern equipment, and compassionate service.",
+    "heroCta": "Book an Appointment",
+    "heroCtaSecondary": "Our Services",
+    "stats": {
+      "years": "Years of Service",
+      "patients": "Patients Treated",
+      "surgeries": "Surgeries Done",
+      "doctors": "Expert Doctors"
+    },
+    "servicesTitle": "Our Eye Care Services",
+    "servicesSubtitle": "Comprehensive eye care under one roof — from routine checkups to complex surgeries",
+    "doctorsTitle": "Meet Our Specialists",
+    "doctorsSubtitle": "Experienced ophthalmologists dedicated to your eye health",
+    "testimonialsTitle": "What Our Patients Say",
+    "ctaBannerTitle": "Ready to Restore Your Vision?",
+    "ctaBannerSubtitle": "Book a consultation today — walk-ins welcome",
+    "ctaBannerBtn": "Book Appointment",
+    "ctaBannerCall": "Call Us"
+  },
+  "services": {
+    "pageTitle": "Our Services",
+    "pageSubtitle": "Advanced eye care treatments delivered with precision and compassion",
+    "cataract": {
+      "title": "Cataract Surgery",
+      "desc": "Phacoemulsification and IOL implantation for clear vision restoration. Quick recovery, painless procedure."
+    },
+    "lasik": {
+      "title": "LASIK Eye Surgery",
+      "desc": "Freedom from glasses and contact lenses with our advanced laser vision correction."
+    },
+    "glaucoma": {
+      "title": "Glaucoma Treatment",
+      "desc": "Early detection and management of glaucoma to prevent vision loss."
+    },
+    "retina": {
+      "title": "Retina Treatment",
+      "desc": "Diagnosis and treatment of retinal diseases including diabetic retinopathy and macular degeneration."
+    },
+    "pediatric": {
+      "title": "Pediatric Eye Care",
+      "desc": "Specialized eye care for children — squint correction, amblyopia treatment, and vision therapy."
+    },
+    "diabetic": {
+      "title": "Diabetic Eye Check",
+      "desc": "Comprehensive retinal screening for diabetic patients to prevent diabetic retinopathy."
+    },
+    "specs": {
+      "title": "Spectacle Prescription",
+      "desc": "Accurate refraction testing and spectacle prescription with a wide range of frames."
+    },
+    "cvs": {
+      "title": "Computer Vision Syndrome",
+      "desc": "Diagnosis and treatment for digital eye strain, dry eyes, and screen fatigue."
+    }
+  },
+  "doctors": {
+    "pageTitle": "Our Doctors",
+    "pageSubtitle": "Qualified, experienced, and compassionate eye specialists",
+    "consults": "Consultation Days",
+    "exp": "years experience"
+  },
+  "about": {
+    "pageTitle": "About Karwar Eye Hospital",
+    "intro": "Established with a mission to bring quality eye care to the people of Karwar and the Uttara Kannada district, Karwar Eye Hospital has grown into a trusted centre for complete ophthalmic care.",
+    "missionTitle": "Our Mission",
+    "mission": "To provide affordable, high-quality eye care to every patient — with compassion, integrity, and clinical excellence.",
+    "visionTitle": "Our Vision",
+    "vision": "A community where no one loses sight due to lack of access to quality eye care.",
+    "whyTitle": "Why Choose Us",
+    "why1": "20+ years of trusted eye care",
+    "why2": "Modern diagnostic equipment",
+    "why3": "Experienced team of ophthalmologists",
+    "why4": "Affordable pricing & free camps",
+    "why5": "Central location in Karwar city",
+    "why6": "Post-operative follow-up care"
+  },
+  "appointments": {
+    "pageTitle": "Book an Appointment",
+    "pageSubtitle": "Fill in your details and we will confirm your appointment",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "date": "Preferred Date",
+    "time": "Preferred Time",
+    "doctor": "Select Doctor",
+    "concern": "Eye Concern / Symptoms",
+    "submit": "Book Appointment",
+    "success": "Thank you! We will call you back to confirm your appointment.",
+    "note": "Walk-ins are also welcome during working hours."
+  },
+  "contact": {
+    "pageTitle": "Contact Us",
+    "pageSubtitle": "We're here to help — reach out to us anytime",
+    "address": "Address",
+    "addressValue": "Karwar Eye Hospital, Karwar, Uttara Kannada District, Karnataka – 581301",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Working Hours",
+    "hoursValue": "Mon – Sat: 9:00 AM – 6:00 PM",
+    "hoursValue2": "Sunday: Closed",
+    "formTitle": "Send Us a Message",
+    "formName": "Your Name",
+    "formEmail": "Your Email",
+    "formMessage": "Message",
+    "formSend": "Send Message"
+  },
+  "footer": {
+    "tagline": "Caring for your vision since 2004.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use",
+    "rights": "© 2024 Karwar Eye Hospital. All rights reserved."
+  },
+  "privacy": {
+    "pageTitle": "Privacy Policy",
+    "effective": "Effective Date: 1 January 2024",
+    "intro": "Karwar Eye Hospital ('we', 'our', or 'us') is committed to protecting the privacy and confidentiality of your personal and medical information. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.",
+    "s1Title": "1. Information We Collect",
+    "s1": "We may collect the following types of information: (a) Personal details such as your name, phone number, and email address when you book an appointment or contact us. (b) Medical information such as your eye condition, symptoms, and consultation history, which is used solely to provide healthcare services. (c) Technical data such as browser type, IP address, and pages visited, collected automatically for website analytics.",
+    "s2Title": "2. How We Use Your Information",
+    "s2": "We use your information to: confirm and manage appointments; provide and improve our medical services; send appointment reminders or follow-up communications; respond to your queries; comply with legal and regulatory obligations.",
+    "s3Title": "3. Information Sharing",
+    "s3": "We do not sell, rent, or trade your personal information to third parties. Your information may be shared with treating doctors and clinical staff within our hospital for the purpose of delivering healthcare. We may disclose information if required by law or a court order.",
+    "s4Title": "4. Data Security",
+    "s4": "We implement appropriate technical and organisational measures to protect your personal information against unauthorised access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.",
+    "s5Title": "5. Cookies",
+    "s5": "Our website may use cookies to enhance your browsing experience. You can choose to disable cookies through your browser settings, though this may affect certain features of the website.",
+    "s6Title": "6. Your Rights",
+    "s6": "You have the right to access the personal information we hold about you, request corrections, or ask us to delete it, subject to legal and clinical record-keeping requirements. To exercise these rights, please contact us using the details below.",
+    "s7Title": "7. Changes to This Policy",
+    "s7": "We may update this Privacy Policy from time to time. The updated version will be posted on this page with a revised effective date. We encourage you to review this policy periodically.",
+    "s8Title": "8. Contact Us",
+    "s8": "If you have any questions or concerns about this Privacy Policy, please contact us at: Karwar Eye Hospital, Karwar, Uttara Kannada District, Karnataka – 581301. Phone: +91 90197 25332. Email: info@karwareyehospital.com"
+  },
+  "terms": {
+    "pageTitle": "Terms of Use",
+    "effective": "Effective Date: 1 January 2024",
+    "intro": "By accessing or using the Karwar Eye Hospital website, you agree to be bound by the following Terms of Use. Please read them carefully before using the website. If you do not agree to these terms, please do not use this website.",
+    "s1Title": "1. Acceptance of Terms",
+    "s1": "These Terms of Use constitute a legally binding agreement between you and Karwar Eye Hospital. Your continued use of the website constitutes your acceptance of these terms and any updates made to them.",
+    "s2Title": "2. Use of Website",
+    "s2": "You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of others. You must not use the website to transmit any harmful, offensive, or unlawful content, or attempt to gain unauthorised access to any part of the website.",
+    "s3Title": "3. Medical Disclaimer",
+    "s3": "The information provided on this website is for general informational purposes only and does not constitute professional medical advice, diagnosis, or treatment. Always seek the advice of a qualified ophthalmologist or other healthcare professional for any medical condition. Do not disregard professional medical advice based on information found on this website.",
+    "s4Title": "4. Appointment Booking",
+    "s4": "Submitting an appointment request through this website does not guarantee a confirmed appointment. Our team will contact you to confirm the date, time, and availability. In case of a medical emergency, please contact emergency services immediately.",
+    "s5Title": "5. Intellectual Property",
+    "s5": "All content on this website, including text, images, logos, and graphics, is the property of Karwar Eye Hospital and is protected by applicable intellectual property laws. You may not reproduce, distribute, or use any content without our express written permission.",
+    "s6Title": "6. Limitation of Liability",
+    "s6": "Karwar Eye Hospital shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of, or inability to use, this website or its content. We do not warrant that the website will be error-free or uninterrupted.",
+    "s7Title": "7. Third-Party Links",
+    "s7": "This website may contain links to third-party websites for your convenience. We do not endorse or take responsibility for the content, privacy practices, or availability of those external sites.",
+    "s8Title": "8. Changes to Terms",
+    "s8": "We reserve the right to modify these Terms of Use at any time. Changes will be posted on this page with an updated effective date. Your continued use of the website after any changes constitutes acceptance of the revised terms.",
+    "s9Title": "9. Governing Law",
+    "s9": "These Terms of Use shall be governed by and construed in accordance with the laws of India. Any disputes arising from these terms shall be subject to the jurisdiction of the courts in Uttara Kannada District, Karnataka.",
+    "s10Title": "10. Contact Us",
+    "s10": "For any questions regarding these Terms of Use, please contact us at: Karwar Eye Hospital, Karwar, Uttara Kannada District, Karnataka – 581301. Phone: +91 90197 25332. Email: info@karwareyehospital.com"
+  }
+}
