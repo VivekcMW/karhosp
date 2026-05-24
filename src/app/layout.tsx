@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -12,6 +12,18 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Karwar Eye Hospital",
   description: "World-class eye care in Karwar, Karnataka. Cataract, LASIK, Glaucoma, Retina treatments.",
+  openGraph: {
+    title: "Karwar Eye Hospital",
+    description: "World-class eye care in Karwar, Karnataka.",
+    type: "website",
+    locale: "en_IN",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0f766e",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

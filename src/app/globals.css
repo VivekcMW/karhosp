@@ -32,6 +32,9 @@
   --color-muted-fg:       #78716c;
   --color-border:         #e7e5e4;
   --color-surface:        #ffffff;
+
+  /* Custom breakpoint: xs = 480px (not in Tailwind defaults) */
+  --breakpoint-xs: 30rem;
 }
 
 html {
@@ -43,6 +46,47 @@ body {
   color: var(--foreground);
   font-family: var(--font-poppins), sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ===================================================
+   CROSS-BROWSER COMPATIBILITY
+   =================================================== */
+
+/* Remove 300ms tap delay on iOS/Android Chrome */
+a, button, [role="button"], input, select, textarea, label {
+  touch-action: manipulation;
+}
+
+/* Prevent iOS Safari auto-zoom on form focus (triggers when font-size < 16px) */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+input[type="search"],
+select,
+textarea {
+  font-size: 16px;
+}
+
+/* Safari -webkit-backdrop-filter fallback for glass elements */
+.backdrop-blur-sm {
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+/* Ensure sticky works in older Safari */
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/* Smooth momentum scrolling on iOS */
+* {
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ===== DARK MODE ===== */
