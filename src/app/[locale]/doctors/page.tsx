@@ -1,5 +1,5 @@
 import { useTranslations, useLocale } from "next-intl";
-import { Calendar } from "lucide-react";
+import { Calendar, Users } from "lucide-react";
 import Link from "next/link";
 import DoctorCard from "@/components/DoctorCard";
 
@@ -64,6 +64,7 @@ export default function DoctorsPage() {
       {/* Header */}
       <section className="bg-gradient-to-br from-[#0f766e] to-[#0d9488] py-12 sm:py-16 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
+          <Users className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-4 text-teal-200" />
           <h1 className="hero-title text-2xl sm:text-3xl md:text-4xl font-bold mb-3">{t("pageTitle")}</h1>
           <p className="hero-sub text-teal-100 text-base sm:text-lg">{t("pageSubtitle")}</p>
         </div>
