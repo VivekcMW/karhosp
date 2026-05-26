@@ -6,6 +6,7 @@
     "doctors": "ವೈದ್ಯರು",
     "appointments": "ಅಪಾಯಿಂಟ್ಮೆಂಟ್ ಬುಕ್ ಮಾಡಿ",
     "contact": "ಸಂಪರ್ಕಿಸಿ",
+    "gallery": "ಗ್ಯಾಲರಿ",
     "switchLang": "English"
   },
   "home": {
@@ -115,6 +116,17 @@
     "formEmail": "ನಿಮ್ಮ ಇಮೇಲ್",
     "formMessage": "ಸಂದೇಶ",
     "formSend": "ಸಂದೇಶ ಕಳುಹಿಸಿ"
+  },
+  "gallery": {
+    "pageTitle": "ನಮ್ಮ ಗ್ಯಾಲರಿ",
+    "pageSubtitle": "ನಮ್ಮ ಸೌಲಭ್ಯಗಳು, ತಂತ್ರಜ್ಞಾನ, ತಂಡ ಮತ್ತು ಸಮುದಾಯ ನೇತ್ರ ಶಿಬಿರಗಳ ಒಂದು ನೋಟ",
+    "cat_all": "ಎಲ್ಲವೂ",
+    "cat_facility": "ಸೌಲಭ್ಯ",
+    "cat_equipment": "ಉಪಕರಣಗಳು",
+    "cat_team": "ನಮ್ಮ ತಂಡ",
+    "cat_camps": "ನೇತ್ರ ಶಿಬಿರ",
+    "noImages": "ಈ ವರ್ಗದಲ್ಲಿ ಯಾವುದೇ ಚಿತ್ರಗಳಿಲ್ಲ.",
+    "photos": "ಚಿತ್ರಗಳು"
   },
   "footer": {
     "tagline": "2004 ರಿಂದ ನಿಮ್ಮ ದೃಷ್ಟಿಯ ರಕ್ಷಣೆ.",

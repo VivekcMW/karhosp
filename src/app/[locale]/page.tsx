@@ -1,15 +1,16 @@
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import {
-  Eye, Calendar, ChevronRight, Star, Award, Users, Stethoscope,
+  Eye, Calendar, ChevronRight, Star, Award, Stethoscope,
   EyeOff, Microscope, Baby, Scan, GlassWater, Monitor,
   Phone, CheckCircle, Quote
 } from "lucide-react";
+import StatCounter from "@/components/StatCounter";
+import DoctorCard from "@/components/DoctorCard";
 
 export default function HomePage() {
   const t = useTranslations("home");
   const ts = useTranslations("services");
-  const td = useTranslations("doctors");
   const locale = useLocale();
   const lp = (href: string) => `/${locale}${href}`;
 
@@ -32,9 +33,9 @@ export default function HomePage() {
   ] as const;
 
   const doctors = [
-    { name: "Dr. Ramesh Naik", spec: "Cataract & LASIK Specialist", exp: 18, photo: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=500&q=80" },
-    { name: "Dr. Suma Hegde", spec: "Retina & Vitreous Surgeon", exp: 14, photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=500&q=80" },
-    { name: "Dr. Anand Kamat", spec: "Pediatric Ophthalmology", exp: 10, photo: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&h=500&q=80" },
+    { name: "Dr. Ramesh Naik", spec: "Cataract & LASIK Specialist", exp: 18, qual: "MBBS, MS (Ophthalmology)", consults: "Mon, Wed, Fri", photo: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=500&q=80" },
+    { name: "Dr. Suma Hegde", spec: "Retina & Vitreous Surgeon", exp: 14, qual: "MBBS, MS, FRCS (Retina)", consults: "Tue, Thu, Sat", photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=500&q=80" },
+    { name: "Dr. Anand Kamat", spec: "Pediatric Ophthalmology", exp: 10, qual: "MBBS, DNB (Ophthalmology)", consults: "Mon – Fri", photo: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&h=500&q=80" },
   ];
 
   const testimonials = [
@@ -130,7 +131,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
           {stats.map(({ value, label }, i) => (
             <div key={label} className={`reveal reveal-d${i + 1} p-3 sm:p-4`}>
-              <p className="text-2xl sm:text-3xl font-bold text-[#0f766e]">{value}</p>
+              <p className="text-2xl sm:text-3xl font-bold text-[#0f766e]">
+                <StatCounter value={value} />
+              </p>
               <p className="text-xs sm:text-sm text-stone-500 mt-1">{label}</p>
             </div>
           ))}
@@ -192,16 +195,12 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {doctors.map((doc, i) => (
-              <div key={doc.name} className={`reveal-scale reveal-d${i + 1} bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group`}>
-                <div className="mx-3 mt-3 rounded-2xl bg-[#ccfbf1] overflow-hidden h-52 flex items-end justify-center">
-                  <img src={doc.photo} alt={doc.name} className="img-zoom h-[92%] w-full object-cover object-top" />
-                </div>
-                <div className="px-4 py-3 text-center">
-                  <h3 className="font-bold text-stone-800">{doc.name}</h3>
-                  <p className="text-stone-500 text-sm mt-0.5">{doc.spec}</p>
-                  <p className="text-[#0f766e] text-xs font-medium mt-1">{doc.exp} {td("exp")}</p>
-                </div>
-              </div>
+              <DoctorCard
+                key={doc.name}
+                doc={doc}
+                locale={locale}
+                delayClass={`reveal-d${i + 1}`}
+              />
             ))}
           </div>
           <div className="text-center mt-8">

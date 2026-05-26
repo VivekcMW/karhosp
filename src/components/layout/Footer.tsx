@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4 text-sm tracking-wide uppercase">{t("quickLinks")}</h3>
             <ul className="space-y-2">
-              {(["home", "about", "services", "doctors", "appointments", "contact"] as const).map((key) => (
+              {(["home", "about", "services", "doctors", "gallery", "appointments", "contact"] as const).map((key) => (
                 <li key={key}>
                   <Link href={localePath(key === "home" ? "/" : `/${key}`)} className="text-teal-100 hover:text-white text-sm transition-colors">
                     {tn(key)}

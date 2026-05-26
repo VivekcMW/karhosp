@@ -1,7 +1,7 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import DoctorCard from "@/components/DoctorCard";
 
 const doctorData = [
   {
@@ -73,47 +73,12 @@ export default function DoctorsPage() {
       <section className="py-12 sm:py-16 bg-[#fefdf8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {doctorData.map((doc, i) => (
-            <div
+            <DoctorCard
               key={doc.name}
-              className={`reveal-scale reveal-d${(i % 3) + 1} bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group`}
-            >
-              {/* Photo */}
-              <div className="mx-3 mt-3 rounded-2xl bg-[#ccfbf1] overflow-hidden h-56 flex items-end justify-center">
-                <img
-                  src={doc.photo}
-                  alt={doc.name}
-                  className="img-zoom w-full h-[94%] object-cover object-top"
-                />
-              </div>
-
-              {/* Info */}
-              <div className="px-5 pt-4 pb-5 flex flex-col gap-1">
-                <h3 className="font-bold text-stone-800 text-lg leading-tight text-center">{doc.name}</h3>
-                <p className="text-[#0f766e] font-semibold text-sm text-center">{doc.spec}</p>
-                <p className="text-stone-400 text-xs text-center leading-snug">{doc.qual}</p>
-
-                {/* Experience + Consultation */}
-                <div className="flex items-center justify-center gap-3 mt-2">
-                  <span className="text-xs text-stone-500">
-                    <span className="font-bold text-stone-700">{doc.exp}+</span> yrs exp
-                  </span>
-                  <span className="w-px h-3.5 bg-stone-200" />
-                  <div className="flex items-center gap-1 text-xs text-[#0f766e] font-medium">
-                    <Calendar className="w-3 h-3 shrink-0" />
-                    <span>{doc.consults}</span>
-                  </div>
-                </div>
-
-                {/* Book button */}
-                <Link
-                  href={lp("/appointments")}
-                  className="mt-3 flex items-center justify-center gap-1.5 bg-[#f0fdfa] hover:bg-[#0f766e] text-[#0f766e] hover:text-white text-xs font-semibold py-2.5 rounded-xl transition-colors"
-                >
-                  <Calendar className="w-3.5 h-3.5 shrink-0" />
-                  Book Appointment
-                </Link>
-              </div>
-            </div>
+              doc={doc}
+              locale={locale}
+              delayClass={`reveal-d${(i % 3) + 1}`}
+            />
           ))}
         </div>
 

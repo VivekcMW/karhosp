@@ -6,6 +6,7 @@
     "doctors": "Doctors",
     "appointments": "Book Appointment",
     "contact": "Contact",
+    "gallery": "Gallery",
     "switchLang": "ಕನ್ನಡ"
   },
   "home": {
@@ -115,6 +116,17 @@
     "formEmail": "Your Email",
     "formMessage": "Message",
     "formSend": "Send Message"
+  },
+  "gallery": {
+    "pageTitle": "Our Gallery",
+    "pageSubtitle": "A glimpse into our facilities, technology, team, and community eye camps",
+    "cat_all": "All",
+    "cat_facility": "Facility",
+    "cat_equipment": "Equipment",
+    "cat_team": "Our Team",
+    "cat_camps": "Eye Camps",
+    "noImages": "No images in this category.",
+    "photos": "photos"
   },
   "footer": {
     "tagline": "Caring for your vision since 2004.",
