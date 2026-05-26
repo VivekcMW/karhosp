@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 185" role="img" aria-label="Karwar Eye Hospital - Lighthouse Logo">
+  <defs>
+    <clipPath id="keh-lh-clip">
+      <circle cx="160" cy="75" r="40"/>
+    </clipPath>
+  </defs>
+
+  <!-- Sclera -->
+  <path d="M 50 75 Q 160 15 270 75 Q 160 135 50 75 Z" fill="#f0fdfa" stroke="#0f766e" stroke-width="3.5"/>
+
+  <!-- Iris background (dark night sea) -->
+  <circle cx="160" cy="75" r="40" fill="#0a4a45"/>
+
+  <!-- Lighthouse scene clipped to iris -->
+  <g clip-path="url(#keh-lh-clip)">
+
+    <!-- Stars in sky -->
+    <circle cx="132" cy="44" r="1" fill="white" opacity="0.6"/>
+    <circle cx="145" cy="38" r="1" fill="white" opacity="0.5"/>
+    <circle cx="175" cy="42" r="1.2" fill="white" opacity="0.7"/>
+    <circle cx="188" cy="50" r="0.9" fill="white" opacity="0.5"/>
+    <circle cx="185" cy="37" r="1" fill="white" opacity="0.6"/>
+    <circle cx="140" cy="52" r="0.8" fill="white" opacity="0.4"/>
+
+    <!-- Sea -->
+    <path d="M 120 97 Q 135 90 150 97 Q 165 104 180 97 Q 195 90 200 94 L 200 115 L 120 115 Z" fill="#063b36"/>
+    <path d="M 120 97 Q 135 90 150 97 Q 165 104 180 97 Q 195 90 200 97"
+      stroke="white" stroke-width="1.5" fill="none" opacity="0.55"/>
+
+    <!-- Light rays from lighthouse lantern -->
+    <line x1="160" y1="49" x2="160" y2="36" stroke="white" stroke-width="1.5" opacity="0.8"/>
+    <line x1="160" y1="49" x2="150" y2="38" stroke="white" stroke-width="1.5" opacity="0.7"/>
+    <line x1="160" y1="49" x2="170" y2="38" stroke="white" stroke-width="1.5" opacity="0.7"/>
+    <line x1="160" y1="49" x2="143" y2="44" stroke="white" stroke-width="1.5" opacity="0.5"/>
+    <line x1="160" y1="49" x2="177" y2="44" stroke="white" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Lighthouse dome -->
+    <path d="M 156 51 Q 156 45 160 43 Q 164 45 164 51 Z" fill="white"/>
+    <!-- Lantern room -->
+    <rect x="153" y="51" width="14" height="7" rx="1" fill="white"/>
+    <!-- Lantern glow -->
+    <circle cx="160" cy="54.5" r="3.5" fill="#fff9c4"/>
+
+    <!-- Lighthouse body (tapering) -->
+    <path d="M 154 58 L 166 58 L 167.5 96 L 152.5 96 Z" fill="white"/>
+
+    <!-- Decorative stripe -->
+    <path d="M 155 69 L 165 69 L 165.5 79 L 154.5 79 Z" fill="#cc4a30" opacity="0.85"/>
+
+    <!-- Window on lighthouse -->
+    <ellipse cx="160" cy="87" rx="3.5" ry="2.5" fill="#fff9c4" opacity="0.8"/>
+
+    <!-- Base / rocks -->
+    <rect x="149" y="96" width="22" height="4" rx="2" fill="white" opacity="0.9"/>
+    <path d="M 145 100 Q 152 97 160 100 Q 168 97 175 100" stroke="white" stroke-width="0.8" fill="none" opacity="0.5"/>
+  </g>
+
+  <!-- Sclera border redrawn on top -->
+  <path d="M 50 75 Q 160 15 270 75 Q 160 135 50 75 Z" fill="none" stroke="#0f766e" stroke-width="3.5"/>
+
+  <!-- Thin rule -->
+  <line x1="88" y1="147" x2="232" y2="147" stroke="#0f766e" stroke-width="0.7" opacity="0.3"/>
+
+  <!-- Hospital name -->
+  <text x="160" y="160"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="13.5" font-weight="bold"
+    fill="#0f766e" letter-spacing="2.5">KARWAR EYE HOSPITAL</text>
+
+  <!-- Tagline -->
+  <text x="160" y="175"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="8.5"
+    fill="#5eaaa5" letter-spacing="3.5">KARWAR · UTTARA KANNADA</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 100" role="img" aria-label="Karwar Eye Hospital - Horizontal Logo">
+  <defs>
+    <clipPath id="keh-h-clip">
+      <circle cx="55" cy="50" r="22"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── ICON (left) ───────────────────────────────────── -->
+
+  <!-- Sclera -->
+  <path d="M 7 50 Q 55 12 103 50 Q 55 88 7 50 Z" fill="#f0fdfa" stroke="#0f766e" stroke-width="2.2"/>
+
+  <!-- Iris -->
+  <circle cx="55" cy="50" r="22" fill="#0f766e"/>
+
+  <!-- Wave scene clipped to iris -->
+  <g clip-path="url(#keh-h-clip)">
+    <path d="M 33 57 Q 40 49 47 57 Q 54 65 61 57 Q 68 49 77 57 L 77 72 L 33 72 Z" fill="#084c47"/>
+    <path d="M 33 57 Q 40 49 47 57 Q 54 65 61 57 Q 68 49 77 57" stroke="white" stroke-width="1.8" fill="none"/>
+  </g>
+
+  <!-- Pupil -->
+  <circle cx="55" cy="48" r="9.5" fill="#021510"/>
+  <!-- Catchlight -->
+  <circle cx="50" cy="43" r="3" fill="white" opacity="0.9"/>
+  <circle cx="58" cy="46" r="1.5" fill="white" opacity="0.45"/>
+
+  <!-- ── VERTICAL DIVIDER ───────────────────────────────── -->
+  <line x1="128" y1="18" x2="128" y2="82" stroke="#0f766e" stroke-width="0.8" opacity="0.25"/>
+
+  <!-- ── TEXT (right) ──────────────────────────────────── -->
+
+  <!-- Main name: two-line stacked -->
+  <text x="148" y="38"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="15" font-weight="bold"
+    fill="#0f766e" letter-spacing="3">KARWAR EYE</text>
+
+  <text x="148" y="58"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="15" font-weight="bold"
+    fill="#0f766e" letter-spacing="3">HOSPITAL</text>
+
+  <!-- Accent rule under name -->
+  <line x1="148" y1="64" x2="400" y2="64" stroke="#0f766e" stroke-width="0.6" opacity="0.2"/>
+
+  <!-- Tagline -->
+  <text x="148" y="78"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="9.5"
+    fill="#5eaaa5" letter-spacing="2.5">Caring for Your Vision · Karwar, Karnataka</text>
+</svg>

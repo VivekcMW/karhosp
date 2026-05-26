@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 185" role="img" aria-label="Karwar Eye Hospital - Lotus Logo">
+  <defs>
+    <clipPath id="keh-lt-clip">
+      <circle cx="160" cy="75" r="40"/>
+    </clipPath>
+    <!-- Single petal pointing straight up from center -->
+  </defs>
+
+  <!-- Sclera -->
+  <path d="M 50 75 Q 160 15 270 75 Q 160 135 50 75 Z" fill="#f0fdfa" stroke="#0f766e" stroke-width="3.5"/>
+
+  <!-- Iris -->
+  <circle cx="160" cy="75" r="40" fill="#0f766e"/>
+
+  <!-- 8 lotus petals clipped to iris -->
+  <g clip-path="url(#keh-lt-clip)">
+    <!-- Each petal: narrow leaf shape from center (160,75) to tip at (160,47), width ~20px at midpoint -->
+    <!-- Rotate each 45° around iris center (160,75) -->
+    <path d="M 160 75 Q 150 61 160 47 Q 170 61 160 75" fill="white" opacity="0.78" transform="rotate(0 160 75)"/>
+    <path d="M 160 75 Q 150 61 160 47 Q 170 61 160 75" fill="white" opacity="0.78" transform="rotate(45 160 75)"/>
+    <path d="M 160 75 Q 150 61 160 47 Q 170 61 160 75" fill="white" opacity="0.78" transform="rotate(90 160 75)"/>
+    <path d="M 160 75 Q 150 61 160 47 Q 170 61 160 75" fill="white" opacity="0.78" transform="rotate(135 160 75)"/>
+    <path d="M 160 75 Q 150 61 160 47 Q 170 61 160 75" fill="white" opacity="0.78" transform="rotate(180 160 75)"/>
+    <path d="M 160 75 Q 150 61 160 47 Q 170 61 160 75" fill="white" opacity="0.78" transform="rotate(225 160 75)"/>
+    <path d="M 160 75 Q 150 61 160 47 Q 170 61 160 75" fill="white" opacity="0.78" transform="rotate(270 160 75)"/>
+    <path d="M 160 75 Q 150 61 160 47 Q 170 61 160 75" fill="white" opacity="0.78" transform="rotate(315 160 75)"/>
+
+    <!-- Inner ring (teal circle to create lotus heart effect) -->
+    <circle cx="160" cy="75" r="15" fill="#0f766e"/>
+
+    <!-- Inner petal ring (smaller, 8 petals, 22.5° offset for layered look) -->
+    <path d="M 160 75 Q 156 68 160 62 Q 164 68 160 75" fill="white" opacity="0.55" transform="rotate(22.5 160 75)"/>
+    <path d="M 160 75 Q 156 68 160 62 Q 164 68 160 75" fill="white" opacity="0.55" transform="rotate(67.5 160 75)"/>
+    <path d="M 160 75 Q 156 68 160 62 Q 164 68 160 75" fill="white" opacity="0.55" transform="rotate(112.5 160 75)"/>
+    <path d="M 160 75 Q 156 68 160 62 Q 164 68 160 75" fill="white" opacity="0.55" transform="rotate(157.5 160 75)"/>
+    <path d="M 160 75 Q 156 68 160 62 Q 164 68 160 75" fill="white" opacity="0.55" transform="rotate(202.5 160 75)"/>
+    <path d="M 160 75 Q 156 68 160 62 Q 164 68 160 75" fill="white" opacity="0.55" transform="rotate(247.5 160 75)"/>
+    <path d="M 160 75 Q 156 68 160 62 Q 164 68 160 75" fill="white" opacity="0.55" transform="rotate(292.5 160 75)"/>
+    <path d="M 160 75 Q 156 68 160 62 Q 164 68 160 75" fill="white" opacity="0.55" transform="rotate(337.5 160 75)"/>
+  </g>
+
+  <!-- Centre disc -->
+  <circle cx="160" cy="75" r="12" fill="#0f766e"/>
+
+  <!-- Pupil -->
+  <circle cx="160" cy="73" r="7.5" fill="#021510"/>
+
+  <!-- Catchlight -->
+  <circle cx="156" cy="69" r="3" fill="white" opacity="0.9"/>
+  <circle cx="163" cy="72" r="1.5" fill="white" opacity="0.5"/>
+
+  <!-- Thin rule -->
+  <line x1="88" y1="147" x2="232" y2="147" stroke="#0f766e" stroke-width="0.7" opacity="0.3"/>
+
+  <!-- Hospital name -->
+  <text x="160" y="160"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="13.5" font-weight="bold"
+    fill="#0f766e" letter-spacing="2.5">KARWAR EYE HOSPITAL</text>
+
+  <!-- Tagline -->
+  <text x="160" y="175"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="8.5"
+    fill="#5eaaa5" letter-spacing="3.5">EYE CARE WITH HEART</text>
+</svg>
