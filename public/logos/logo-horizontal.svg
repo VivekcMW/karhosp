@@ -8,7 +8,7 @@
   <!-- ── ICON (left) ───────────────────────────────────── -->
 
   <!-- Sclera -->
-  <path d="M 7 50 Q 55 12 103 50 Q 55 88 7 50 Z" fill="#f0fdfa" stroke="#0f766e" stroke-width="2.2"/>
+  <path d="M 7 50 Q 55 12 103 50 Q 55 88 7 50 Z" fill="#f0fdfa"/>
 
   <!-- Iris -->
   <circle cx="55" cy="50" r="22" fill="#0f766e"/>

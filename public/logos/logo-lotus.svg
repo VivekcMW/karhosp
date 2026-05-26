@@ -7,7 +7,7 @@
   </defs>
 
   <!-- Sclera -->
-  <path d="M 50 75 Q 160 15 270 75 Q 160 135 50 75 Z" fill="#f0fdfa" stroke="#0f766e" stroke-width="3.5"/>
+  <path d="M 50 75 Q 160 15 270 75 Q 160 135 50 75 Z" fill="#f0fdfa"/>
 
   <!-- Iris -->
   <circle cx="160" cy="75" r="40" fill="#0f766e"/>

@@ -6,7 +6,7 @@
   </defs>
 
   <!-- Sclera -->
-  <path d="M 50 75 Q 160 15 270 75 Q 160 135 50 75 Z" fill="#f0fdfa" stroke="#0f766e" stroke-width="3.5"/>
+  <path d="M 50 75 Q 160 15 270 75 Q 160 135 50 75 Z" fill="#f0fdfa"/>
 
   <!-- Iris background (dark night sea) -->
   <circle cx="160" cy="75" r="40" fill="#0a4a45"/>
@@ -55,8 +55,7 @@
     <path d="M 145 100 Q 152 97 160 100 Q 168 97 175 100" stroke="white" stroke-width="0.8" fill="none" opacity="0.5"/>
   </g>
 
-  <!-- Sclera border redrawn on top -->
-  <path d="M 50 75 Q 160 15 270 75 Q 160 135 50 75 Z" fill="none" stroke="#0f766e" stroke-width="3.5"/>
+
 
   <!-- Thin rule -->
   <line x1="88" y1="147" x2="232" y2="147" stroke="#0f766e" stroke-width="0.7" opacity="0.3"/>
