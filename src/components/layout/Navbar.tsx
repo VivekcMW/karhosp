@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
@@ -11,7 +11,6 @@ import ThemeToggle from "@/components/ThemeToggle";
 export default function Navbar() {
   const t = useTranslations("nav");
   const locale = useLocale();
-  const router = useRouter();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -24,13 +23,15 @@ export default function Navbar() {
     { key: "contact", href: "/contact" },
   ] as const;
 
-  const switchLocale = () => {
-    const nextLocale = locale === "en" ? "kn" : "en";
-    // Remove current locale prefix and replace
+  // Build the URL for the opposite locale. Uses a full <a> navigation
+  // (not router.push) because App Router caches the [locale] layout segment
+  // and a soft navigation between locales doesn't re-render messages.
+  const otherLocale = locale === "en" ? "kn" : "en";
+  const switchLocaleHref = (() => {
     const segments = pathname.split("/");
-    segments[1] = nextLocale;
-    router.push(segments.join("/") || `/${nextLocale}`);
-  };
+    segments[1] = otherLocale;
+    return segments.join("/") || `/${otherLocale}`;
+  })();
 
   const localePath = (href: string) => `/${locale}${href}`;
 
@@ -85,12 +86,12 @@ export default function Navbar() {
         {/* Right actions */}
         <div className="flex items-center gap-3">
           {/* Language toggle */}
-          <button
-            onClick={switchLocale}
+          <a
+            href={switchLocaleHref}
             className="hidden sm:flex items-center gap-1.5 text-xs font-semibold border border-[#0f766e] text-[#0f766e] px-3 py-1.5 rounded-full hover:bg-[#f0fdfa] transition-colors"
           >
             {t("switchLang")}
-          </button>
+          </a>
 
           {/* Theme toggle */}
           <ThemeToggle className="hidden sm:flex" />
@@ -134,12 +135,13 @@ export default function Navbar() {
           })}
           <div className="pt-3 flex flex-col gap-3">
             <div className="flex gap-3">
-              <button
-                onClick={() => { switchLocale(); setMenuOpen(false); }}
+              <a
+                href={switchLocaleHref}
+                onClick={() => setMenuOpen(false)}
                 className="flex-1 text-center text-sm font-semibold border border-[#0f766e] text-[#0f766e] py-2.5 rounded-xl hover:bg-[#f0fdfa] transition-colors"
               >
                 {t("switchLang")}
-              </button>
+              </a>
               <ThemeToggle className="!w-auto px-3 rounded-xl border-[#0f766e] text-[#0f766e]" />
             </div>
             <Link
