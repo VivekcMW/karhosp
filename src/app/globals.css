@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fefdf8;
-  --foreground: #1c1917;
+  --background: #f8fafc;
+  --foreground: #0f172a;
 
-  /* Hospital brand tokens */
-  --color-primary:        #0f766e;
+  /* Hospital brand tokens — sourced from the Coastal Wave Eye logo */
+  --color-primary:        #0f766e;  /* logo iris */
   --color-primary-hover:  #0d6b63;
-  --color-primary-light:  #f0fdfa;
-  --color-secondary:      #d97706;
+  --color-primary-deep:   #084c47;  /* logo wave (deep teal) */
+  --color-primary-light:  #f0fdfa;  /* logo sclera (mint pale) */
+  --color-iris:           #5eead4;  /* light-variant iris (mint) */
+  --color-secondary:      #d97706;  /* warm CTA accent */
   --color-secondary-hover:#b45309;
   --color-accent:         #14b8a6;
   --color-border:         #ccfbf1;
-  --color-muted:          #f5f5f4;
-  --color-muted-fg:       #78716c;
+  --color-muted:          #f1f5f9;
+  --color-muted-fg:       #64748b;
   --color-surface:        #ffffff;
 }
 
@@ -22,15 +24,17 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-poppins);
 
-  /* Brand palette */
+  /* Brand palette — aligned with logo */
   --color-primary:        #0f766e;
   --color-primary-hover:  #0d6b63;
+  --color-primary-deep:   #084c47;
   --color-primary-light:  #f0fdfa;
+  --color-iris:           #5eead4;
   --color-secondary:      #d97706;
   --color-accent:         #14b8a6;
-  --color-muted:          #f5f5f4;
-  --color-muted-fg:       #78716c;
-  --color-border:         #e7e5e4;
+  --color-muted:          #f1f5f9;
+  --color-muted-fg:       #64748b;
+  --color-border:         #e2e8f0;
   --color-surface:        #ffffff;
 
   /* Custom breakpoint: xs = 480px (not in Tailwind defaults) */
@@ -103,6 +107,7 @@ html.dark body {
 /* White / warm-white backgrounds → dark slate */
 html.dark .bg-white                     { background-color: #1e293b; }
 html.dark [class*="bg-[#fefdf8]"]       { background-color: #0f172a; }
+html.dark [class*="bg-[#f8fafc]"]       { background-color: #0f172a; }
 html.dark [class*="bg-[#f0fdfa]"]       { background-color: #0c2218; }
 
 /* Text */
@@ -134,11 +139,13 @@ html.dark input:focus,
 html.dark select:focus,
 html.dark textarea:focus { border-color: #0f766e; outline: none; }
 
-/* Smooth transitions on theme switch */
-html.dark *,
-html *,
-html *::before,
-html *::after {
+/* Smooth transitions on theme switch — scoped to elements that opt in via the
+   `.theme-transition` helper class. Applying this globally caused page sections
+   (gradients, headers) to fade in on every navigation. */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
   transition-property: background-color, border-color, color;
   transition-duration: 200ms;
   transition-timing-function: ease;

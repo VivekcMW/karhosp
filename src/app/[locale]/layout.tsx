@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import RevealObserver from "@/components/RevealObserver";
 import PageTransition from "@/components/PageTransition";
+import SplashLoader from "@/components/SplashLoader";
 
 type Props = {
   children: React.ReactNode;
@@ -23,6 +24,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
+      <SplashLoader />
       <RevealObserver />
       <Navbar />
       <main className="flex-1">

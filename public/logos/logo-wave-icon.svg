@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" role="img" aria-label="Karwar Eye Hospital">
+  <defs>
+    <clipPath id="keh-w-icon-clip">
+      <circle cx="70" cy="70" r="55"/>
+    </clipPath>
+  </defs>
+
+  <!-- Iris (eyeball only — no sclera) -->
+  <circle cx="70" cy="70" r="55" fill="#0f766e"/>
+
+  <!-- Wave scene clipped to iris -->
+  <g clip-path="url(#keh-w-icon-clip)">
+    <path d="M 15 82 Q 33 64 51 82 Q 69 100 87 82 Q 105 64 125 82 L 125 130 L 15 130 Z" fill="#084c47"/>
+    <path d="M 15 82 Q 33 64 51 82 Q 69 100 87 82 Q 105 64 125 82" stroke="white" stroke-width="3" fill="none"/>
+    <path d="M 18 93 Q 33 82 48 93 Q 63 104 78 93 Q 93 82 122 93" stroke="white" stroke-width="2" fill="none" opacity="0.4"/>
+  </g>
+
+  <!-- Pupil -->
+  <circle cx="70" cy="65" r="22" fill="#021510"/>
+  <!-- Catchlight highlights -->
+  <circle cx="60" cy="56" r="6.5" fill="white" opacity="0.95"/>
+  <circle cx="76" cy="62" r="3" fill="white" opacity="0.55"/>
+</svg>

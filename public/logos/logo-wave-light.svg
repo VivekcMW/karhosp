@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 185" role="img" aria-label="Karwar Eye Hospital - Coastal Wave Logo">
+  <defs>
+    <clipPath id="keh-w-clip-light">
+      <circle cx="160" cy="75" r="40"/>
+    </clipPath>
+  </defs>
+
+  <!-- Iris (eyeball only — no sclera) -->
+  <circle cx="160" cy="75" r="40" fill="#5eead4"/>
+
+  <!-- Wave scene clipped to iris -->
+  <g clip-path="url(#keh-w-clip-light)">
+    <path d="M 120 85 Q 133 72 146 85 Q 159 98 172 85 Q 185 72 200 85 L 200 115 L 120 115 Z" fill="#0d9488"/>
+    <path d="M 120 85 Q 133 72 146 85 Q 159 98 172 85 Q 185 72 200 85" stroke="white" stroke-width="2.5" fill="none"/>
+    <path d="M 122 93 Q 133 84 144 93 Q 155 102 166 93 Q 177 84 198 93" stroke="white" stroke-width="1.5" fill="none" opacity="0.5"/>
+  </g>
+
+  <!-- Pupil -->
+  <circle cx="160" cy="72" r="17" fill="#042f2e"/>
+  <!-- Catchlight highlights -->
+  <circle cx="152" cy="65" r="5" fill="white" opacity="0.95"/>
+  <circle cx="165" cy="69" r="2.5" fill="white" opacity="0.6"/>
+
+  <!-- Thin rule -->
+  <line x1="88" y1="137" x2="232" y2="137" stroke="#ffffff" stroke-width="0.7" opacity="0.4"/>
+
+  <!-- Hospital name -->
+  <text x="160" y="155"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="13.5" font-weight="bold"
+    fill="#ffffff" letter-spacing="2.5">KARWAR EYE HOSPITAL</text>
+
+  <!-- Tagline -->
+  <text x="160" y="172"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="8.5"
+    fill="#ccfbf1" letter-spacing="3.5">CARING FOR YOUR VISION</text>
+</svg>

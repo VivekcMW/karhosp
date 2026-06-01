@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
-import { Eye, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -14,17 +15,17 @@ export default function Footer() {
     <footer className="bg-[#0f766e] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
-          {/* Brand */}
+          {/* Brand — Coastal Wave Eye logo (light variant for teal background) */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-                <Eye className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="font-bold text-white text-sm">Karwar Eye Hospital</p>
-                <p className="text-[10px] text-teal-200 tracking-widest uppercase">Karwar, Karnataka</p>
-              </div>
-            </div>
+            <Image
+              src="/logos/logo-wave-light.svg"
+              alt="Karwar Eye Hospital"
+              width={240}
+              height={140}
+              unoptimized
+              className="h-20 w-auto mb-4"
+            />
+            <p className="text-[10px] text-teal-200 tracking-widest uppercase mb-2">Karwar, Karnataka</p>
             <p className="text-teal-100 text-sm leading-relaxed">{t("tagline")}</p>
           </div>
 

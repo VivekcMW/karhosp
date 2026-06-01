@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
-import { Eye, Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -47,15 +48,17 @@ export default function Navbar() {
 
       {/* Main nav */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link href={localePath("/")} className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-full bg-[#0f766e] flex items-center justify-center group-hover:bg-[#0d6b63] transition-colors">
-            <Eye className="w-5 h-5 text-white" />
-          </div>
-          <div className="leading-tight">
-            <p className="font-bold text-[#0f766e] text-sm tracking-tight">Karwar Eye</p>
-            <p className="text-[10px] text-stone-500 tracking-widest uppercase">Hospital</p>
-          </div>
+        {/* Logo — Coastal Wave Eye brand mark */}
+        <Link href={localePath("/")} className="flex items-center gap-2 group" aria-label="Karwar Eye Hospital — Home">
+          <Image
+            src="/logos/logo-wave-icon.svg"
+            alt="Karwar Eye Hospital"
+            width={220}
+            height={140}
+            priority
+            unoptimized
+            className="h-12 w-auto group-hover:opacity-90 transition-opacity"
+          />
         </Link>
 
         {/* Desktop links */}

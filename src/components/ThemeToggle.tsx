@@ -19,8 +19,11 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
   const toggle = () => {
     const next = !dark;
     setDark(next);
-    document.documentElement.classList.toggle("dark", next);
+    const root = document.documentElement;
+    root.classList.add("theme-transition");
+    root.classList.toggle("dark", next);
     localStorage.setItem("theme", next ? "dark" : "light");
+    window.setTimeout(() => root.classList.remove("theme-transition"), 250);
   };
 
   if (!mounted) return <div className="w-8 h-8" />;
