@@ -7,6 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
+import HospitalStatus from "@/components/HospitalStatus";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -19,6 +20,7 @@ export default function Navbar() {
     { key: "about", href: "/about" },
     { key: "services", href: "/services" },
     { key: "doctors", href: "/doctors" },
+    { key: "empanelments", href: "/empanelments" },
     { key: "gallery", href: "/gallery" },
     { key: "contact", href: "/contact" },
   ] as const;
@@ -44,7 +46,7 @@ export default function Navbar() {
           <a href="tel:+919019725332" className="truncate hover:text-white transition-colors">+91 90197 25332</a>
           <a href="mailto:info@karwareyehospital.com" className="hidden xs:inline hover:text-white transition-colors">&nbsp;|&nbsp; info@karwareyehospital.com</a>
         </span>
-        <span className="hidden sm:block shrink-0">Mon – Sat: 9 AM – 6 PM</span>
+        <HospitalStatus variant="topbar" />
       </div>
 
       {/* Main nav */}

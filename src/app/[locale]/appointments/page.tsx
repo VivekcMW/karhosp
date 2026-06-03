@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Calendar, Phone, Clock, MessageCircle, MapPin } from "lucide-react";
+import HospitalStatus from "@/components/HospitalStatus";
 
 const HOSPITAL_WHATSAPP = "919019725332";
 const WHATSAPP_MESSAGE = encodeURIComponent(
@@ -64,8 +65,12 @@ export default function AppointmentsPage() {
               <Clock className="w-4 h-4 text-[#0f766e] mt-0.5 shrink-0" />
               <div>
                 <p className="font-medium text-stone-800">Working Hours</p>
-                <p>All Days: 9:30 AM – 1:30 PM</p>
-                <p className="text-stone-400">All Days: 4:00 PM – 6:00 PM</p>
+                <p>Mon – Sat: 9:30 AM – 1:00 PM</p>
+                <p className="text-stone-400">Mon – Sat: 4:30 PM – 7:00 PM</p>
+                <p className="text-stone-400">Sunday: Closed</p>
+                <div className="mt-3">
+                  <HospitalStatus variant="inline" />
+                </div>
               </div>
             </div>
             <div className="flex items-start gap-3 text-sm text-stone-600">

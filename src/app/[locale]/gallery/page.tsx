@@ -357,7 +357,7 @@ export default function GalleryPage() {
           </button>
 
           {/* Image */}
-          <div className="relative z-10 max-w-5xl w-full mx-auto px-16 flex flex-col items-center">
+          <div className="relative z-10 max-w-5xl w-full mx-auto px-10 sm:px-16 flex flex-col items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={filtered[lightboxIndex].src.replace("w=800", "w=1400")}

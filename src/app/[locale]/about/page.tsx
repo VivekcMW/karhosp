@@ -23,14 +23,14 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
-          <div className="bg-[#f0fdfa] rounded-2xl p-8 border border-teal-100">
+          <div className="bg-[#f0fdfa] rounded-2xl p-5 sm:p-8 border border-teal-100">
             <div className="w-12 h-12 rounded-xl bg-[#0f766e] flex items-center justify-center mb-4">
               <Target className="w-6 h-6 text-white" />
             </div>
             <h2 className="text-xl font-bold text-stone-800 mb-3">{t("missionTitle")}</h2>
             <p className="text-stone-600 leading-relaxed">{t("mission")}</p>
           </div>
-          <div className="bg-amber-50 rounded-2xl p-8 border border-amber-100">
+          <div className="bg-amber-50 rounded-2xl p-5 sm:p-8 border border-amber-100">
             <div className="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center mb-4">
               <Heart className="w-6 h-6 text-white" />
             </div>

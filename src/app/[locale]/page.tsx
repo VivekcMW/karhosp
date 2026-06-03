@@ -208,7 +208,7 @@ export default function HomePage() {
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="reveal text-2xl sm:text-3xl font-bold text-stone-800 text-center mb-8 sm:mb-12">{t("testimonialsTitle")}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((item, i) => (
               <div key={item.name} className={`reveal reveal-d${i + 1} bg-[#f0fdfa] rounded-2xl p-6 border border-teal-100 hover:shadow-md transition-shadow duration-300`}>
                 <Quote className="w-8 h-8 text-[#14b8a6] mb-3 opacity-60" />
@@ -222,6 +222,42 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── EMPANELMENTS ─── */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="reveal text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-stone-800">Accepted Insurance &amp; Schemes</h2>
+            <p className="text-stone-500 mt-2 text-sm sm:text-base">We're empaneled with government health programmes, PSUs, and major insurance companies</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {[
+              { name: "Ayushman Bharat PM-JAY", badge: "Central Govt.", color: "bg-teal-50 border-teal-200 text-teal-700" },
+              { name: "CGHS", badge: "Central Govt.", color: "bg-teal-50 border-teal-200 text-teal-700" },
+              { name: "ECHS", badge: "Defence", color: "bg-teal-50 border-teal-200 text-teal-700" },
+              { name: "ESIC", badge: "Labour Min.", color: "bg-teal-50 border-teal-200 text-teal-700" },
+              { name: "Arogya Karnataka", badge: "State Govt.", color: "bg-teal-50 border-teal-200 text-teal-700" },
+              { name: "Star Health", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "New India Assurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "HDFC ERGO Health", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Bajaj Allianz Health", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Niva Bupa", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Medi Assist TPA", badge: "TPA", color: "bg-blue-50 border-blue-200 text-blue-700" },
+              { name: "Railway Health Service", badge: "Railways", color: "bg-teal-50 border-teal-200 text-teal-700" },
+            ].map((item) => (
+              <div key={item.name} className={`reveal border rounded-md px-4 py-3 flex flex-col gap-1 ${item.color}`}>
+                <p className="font-semibold text-sm leading-snug text-stone-800">{item.name}</p>
+                <span className="text-[10px] font-bold uppercase tracking-wide opacity-70">{item.badge}</span>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link href={lp("/empanelments")} className="inline-flex items-center gap-1.5 text-[#0f766e] font-semibold text-sm hover:underline">
+              View all {">"}30 empanelments <ChevronRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

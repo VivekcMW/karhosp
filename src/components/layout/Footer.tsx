@@ -60,7 +60,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4 text-sm tracking-wide uppercase">{t("quickLinks")}</h3>
             <ul className="space-y-2">
-              {(["home", "about", "services", "doctors", "gallery", "appointments", "contact"] as const).map((key) => (
+              {(["home", "about", "services", "doctors", "empanelments", "gallery", "appointments", "contact"] as const).map((key) => (
                 <li key={key}>
                   <Link href={localePath(key === "home" ? "/" : `/${key}`)} className="text-teal-100 hover:text-white text-sm transition-colors">
                     {tn(key)}
@@ -84,7 +84,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-2 items-center">
                 <Mail className="w-4 h-4 shrink-0" />
-                <a href="mailto:info@karwareyehospital.com" className="hover:text-white transition-colors">info@karwareyehospital.com</a>
+                <a href="mailto:info@karwareyehospital.com" className="hover:text-white transition-colors break-all">info@karwareyehospital.com</a>
               </li>
               <li className="flex gap-2 items-start">
                 <Clock className="w-4 h-4 mt-0.5 shrink-0" />

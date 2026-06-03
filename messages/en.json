@@ -7,6 +7,7 @@
     "appointments": "Book Appointment",
     "contact": "Contact",
     "gallery": "Gallery",
+    "empanelments": "Empanelments",
     "switchLang": "ಕನ್ನಡ"
   },
   "home": {
@@ -113,8 +114,8 @@
     "phone": "Phone",
     "email": "Email",
     "hours": "Working Hours",
-    "hoursValue": "All Days: 9:30 AM – 1:30 PM",
-    "hoursValue2": "All Days: 4:00 PM – 6:00 PM",
+    "hoursValue": "Mon – Sat: 9:30 AM – 1:00 PM",
+    "hoursValue2": "Mon – Sat: 4:30 PM – 7:00 PM  ·  Sunday: Closed",
     "formTitle": "Send Us a Message",
     "formName": "Your Name",
     "formEmail": "Your Email",

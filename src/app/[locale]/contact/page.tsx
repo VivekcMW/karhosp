@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import HospitalStatus from "@/components/HospitalStatus";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -58,6 +59,9 @@ export default function ContactPage() {
                 <p className="font-semibold text-stone-800 mb-1">{t("hours")}</p>
                 <p className="text-stone-500 text-sm">{t("hoursValue")}</p>
                 <p className="text-stone-400 text-sm">{t("hoursValue2")}</p>
+                <div className="mt-3">
+                  <HospitalStatus variant="inline" />
+                </div>
               </div>
             </div>
           </div>
