@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Images, X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -34,107 +34,83 @@ const GALLERY_ITEMS: GalleryItem[] = [
     alt: "Operation theatre",
     category: "facility",
   },
-  {
-    id: 4,
-    src: "/gallery/operation-theatre-2.jpg",
-    alt: "Surgical theatre setup",
-    category: "facility",
-  },
   // Equipment
   {
-    id: 5,
+    id: 4,
     src: "/gallery/laser-equipment.jpg",
     alt: "Appa YAG Laser – Model 307",
     category: "equipment",
   },
   {
-    id: 6,
-    src: "/gallery/slit-lamp-1.jpg",
-    alt: "Slit lamp examination",
-    category: "equipment",
-  },
-  {
-    id: 7,
+    id: 5,
     src: "/gallery/slit-lamp-2.jpg",
     alt: "Slit lamp with tonometer",
     category: "equipment",
   },
   {
-    id: 8,
+    id: 6,
     src: "/gallery/oct-scan.jpg",
     alt: "Artelus OCT scan in progress",
     category: "equipment",
   },
   {
-    id: 9,
+    id: 7,
     src: "/gallery/artelus-oct.jpg",
     alt: "Artelus OCT machine",
     category: "equipment",
   },
-  {
-    id: 10,
-    src: "/gallery/vr-test.jpg",
-    alt: "Elisor VR vision field test",
-    category: "equipment",
-  },
   // Team
   {
-    id: 11,
+    id: 8,
     src: "/gallery/doctor-portrait-1.jpg",
     alt: "Chief Ophthalmologist",
     category: "team",
   },
   {
-    id: 12,
+    id: 9,
     src: "/gallery/doctor-portrait-2.jpg",
     alt: "Senior Eye Specialist",
     category: "team",
   },
   {
-    id: 13,
+    id: 10,
     src: "/gallery/doctor-portrait-3.jpg",
     alt: "Consultant Ophthalmologist",
     category: "team",
   },
   {
-    id: 14,
+    id: 11,
     src: "/gallery/doctor-at-desk.jpg",
     alt: "Doctor at consultation desk",
     category: "team",
   },
   {
-    id: 15,
+    id: 12,
     src: "/gallery/team-1.jpg",
     alt: "Hospital team",
     category: "team",
   },
-  {
-    id: 16,
-    src: "/gallery/team-2.jpg",
-    alt: "Medical staff team",
-    category: "team",
-  },
   // Eye Camps / Consultations
   {
-    id: 17,
+    id: 13,
     src: "/gallery/doctor-consultation-1.jpg",
     alt: "Doctor examining patient with slit lamp",
     category: "camps",
   },
   {
-    id: 18,
+    id: 14,
     src: "/gallery/doctor-consultation-2.jpg",
     alt: "Patient consultation session",
     category: "camps",
   },
   {
-    id: 19,
+    id: 15,
     src: "/gallery/retina-examination.jpg",
     alt: "Retina examination with indirect ophthalmoscope",
     category: "camps",
   },
   {
-    id: 20,
+    id: 16,
     src: "/gallery/bp-check.jpg",
     alt: "Pre-operative blood pressure check",
     category: "camps",
@@ -182,6 +158,8 @@ export default function GalleryPage() {
   const t = useTranslations("gallery");
   const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const thumbStripRef = useRef<HTMLDivElement>(null);
+  const activeThumbRef = useRef<HTMLButtonElement>(null);
 
   const filtered =
     activeCategory === "all"
@@ -208,6 +186,16 @@ export default function GalleryPage() {
     globalThis.addEventListener("keydown", handleKey);
     return () => globalThis.removeEventListener("keydown", handleKey);
   }, [lightboxIndex, filtered.length]);
+
+  // Scroll active thumbnail into view whenever lightboxIndex changes
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    activeThumbRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [lightboxIndex]);
 
   return (
     <div>
@@ -374,12 +362,12 @@ export default function GalleryPage() {
             <img
               src={filtered[lightboxIndex].src.replace("w=800", "w=1400")}
               alt={filtered[lightboxIndex].alt}
-              className="max-h-[78vh] w-auto mx-auto rounded-md object-contain shadow-2xl"
+              className="max-h-[62vh] w-auto mx-auto rounded-md object-contain shadow-2xl"
             />
-            <p className="text-white/75 text-sm text-center mt-4 leading-snug px-4">
+            <p className="text-white/75 text-sm text-center mt-3 leading-snug px-4">
               {filtered[lightboxIndex].alt}
             </p>
-            <p className="text-white/35 text-xs text-center mt-1.5 tabular-nums">
+            <p className="text-white/35 text-xs text-center mt-1 tabular-nums">
               {lightboxIndex + 1} / {filtered.length}
             </p>
           </div>
@@ -393,6 +381,41 @@ export default function GalleryPage() {
           >
             <ChevronRight className="w-6 h-6" />
           </button>
+
+          {/* ── Thumbnail strip ── */}
+          <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/80 to-transparent pt-6 pb-4 px-4">
+            <div
+              ref={thumbStripRef}
+              className="flex gap-2 overflow-x-auto scrollbar-none justify-start items-center max-w-5xl mx-auto"
+            >
+              {filtered.map((item, idx) => {
+                const isActive = idx === lightboxIndex;
+                return (
+                  <button
+                    key={item.id}
+                    ref={isActive ? activeThumbRef : null}
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); setLightboxIndex(idx); }}
+                    aria-label={item.alt}
+                    className={`shrink-0 rounded overflow-hidden transition-all duration-200 ${
+                      isActive
+                        ? "ring-2 ring-white scale-110 opacity-100"
+                        : "opacity-50 hover:opacity-80 hover:scale-105"
+                    }`}
+                    style={{ width: 56, height: 40 }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       )}
     </div>

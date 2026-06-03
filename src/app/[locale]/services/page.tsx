@@ -1,15 +1,15 @@
 import { useTranslations } from "next-intl";
-import { Eye, Scan, EyeOff, Microscope, Baby, GlassWater, Stethoscope, Monitor, Activity } from "lucide-react";
+import { Eye, EyeOff, Microscope, Baby, GlassWater, Stethoscope, Monitor, Crosshair, Activity } from "lucide-react";
 
 const serviceList = [
   { icon: Eye, key: "cataract", color: "bg-teal-50", iconColor: "text-[#0f766e]", border: "border-teal-100" },
-  { icon: Scan, key: "lasik", color: "bg-amber-50", iconColor: "text-amber-600", border: "border-amber-100" },
   { icon: EyeOff, key: "glaucoma", color: "bg-blue-50", iconColor: "text-blue-600", border: "border-blue-100" },
   { icon: Microscope, key: "retina", color: "bg-purple-50", iconColor: "text-purple-600", border: "border-purple-100" },
   { icon: Baby, key: "pediatric", color: "bg-pink-50", iconColor: "text-pink-600", border: "border-pink-100" },
   { icon: GlassWater, key: "diabetic", color: "bg-orange-50", iconColor: "text-orange-600", border: "border-orange-100" },
   { icon: Stethoscope, key: "specs", color: "bg-green-50", iconColor: "text-green-600", border: "border-green-100" },
   { icon: Monitor, key: "cvs", color: "bg-indigo-50", iconColor: "text-indigo-600", border: "border-indigo-100" },
+  { icon: Crosshair, key: "squint", color: "bg-rose-50", iconColor: "text-rose-600", border: "border-rose-100" },
 ] as const;
 
 export default function ServicesPage() {

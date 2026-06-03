@@ -46,16 +46,16 @@ export default function DoctorCard({
     <>
       {/* ─── Card ─── */}
       <div
-        className={`reveal-scale ${delayClass} flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group`}
+        className={`reveal-scale ${delayClass} flex flex-col bg-white rounded-md overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group`}
       >
         {/* Clickable photo + info → opens modal */}
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded-t-3xl"
+          className="text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded-t-md"
           aria-label={`View profile of ${doc.name}`}
         >
-          <div className="mx-3 mt-3 rounded-2xl bg-[#ccfbf1] overflow-hidden h-56 flex items-end justify-center">
+          <div className="mx-3 mt-3 rounded-md bg-[#ccfbf1] overflow-hidden h-56 flex items-end justify-center">
             <img
               src={doc.photo}
               alt={doc.name}
@@ -86,13 +86,13 @@ export default function DoctorCard({
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="flex-1 flex items-center justify-center bg-[#f0fdfa] hover:bg-teal-100 text-[#0f766e] text-xs font-semibold py-2.5 rounded-xl transition-colors"
+            className="flex-1 flex items-center justify-center bg-[#f0fdfa] hover:bg-teal-100 text-[#0f766e] text-xs font-semibold py-2.5 rounded-md transition-colors"
           >
             View Profile
           </button>
           <Link
             href={lp("/appointments")}
-            className="flex-1 flex items-center justify-center gap-1.5 bg-[#0f766e] hover:bg-[#0d6b63] text-white text-xs font-semibold py-2.5 rounded-xl transition-colors"
+            className="flex-1 flex items-center justify-center gap-1.5 bg-[#0f766e] hover:bg-[#0d6b63] text-white text-xs font-semibold py-2.5 rounded-md transition-colors"
           >
             <Calendar className="w-3.5 h-3.5 shrink-0" />
             Book
@@ -127,7 +127,7 @@ export default function DoctorCard({
               aria-label={`Profile of ${doc.name}`}
               className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
             >
-              <div className="bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden pointer-events-auto">
+              <div className="bg-white rounded-md shadow-2xl w-full max-w-sm overflow-hidden pointer-events-auto">
                 {/* Photo header */}
                 <div className="relative h-52 overflow-hidden bg-[#ccfbf1]">
                   <img
@@ -152,19 +152,19 @@ export default function DoctorCard({
 
                 {/* Stats row */}
                 <div className="grid grid-cols-3 gap-2 px-4 pt-4">
-                  <div className="bg-[#f0fdfa] rounded-xl py-3 text-center">
+                  <div className="bg-[#f0fdfa] rounded-md py-3 text-center">
                     <Award className="w-4 h-4 text-[#0f766e] mx-auto mb-1" />
                     <p className="text-sm font-bold text-stone-800">{doc.exp}+</p>
                     <p className="text-[10px] text-stone-500">Yrs Exp</p>
                   </div>
-                  <div className="bg-amber-50 rounded-xl py-3 px-1 text-center">
+                  <div className="bg-amber-50 rounded-md py-3 px-1 text-center">
                     <GraduationCap className="w-4 h-4 text-amber-600 mx-auto mb-1" />
                     <p className="text-[11px] font-bold text-stone-800 leading-tight">
                       {doc.qual.split(",")[0].trim()}
                     </p>
                     <p className="text-[10px] text-stone-500 mt-0.5">Degree</p>
                   </div>
-                  <div className="bg-blue-50 rounded-xl py-3 px-1 text-center">
+                  <div className="bg-blue-50 rounded-md py-3 px-1 text-center">
                     <Clock className="w-4 h-4 text-blue-600 mx-auto mb-1" />
                     <p className="text-[11px] font-bold text-stone-800 leading-tight">
                       {doc.consults}
@@ -183,7 +183,7 @@ export default function DoctorCard({
                   <Link
                     href={lp("/appointments")}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full bg-[#0f766e] hover:bg-[#0d6b63] text-white font-semibold py-3 rounded-xl transition-colors text-sm shadow-md"
+                    className="flex items-center justify-center gap-2 w-full bg-[#0f766e] hover:bg-[#0d6b63] text-white font-semibold py-3 rounded-md transition-colors text-sm shadow-md"
                   >
                     <Calendar className="w-4 h-4" />
                     Book Appointment

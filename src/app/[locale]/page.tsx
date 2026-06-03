@@ -2,8 +2,8 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import {
   Eye, Calendar, ChevronRight, Star, Award, Stethoscope,
-  EyeOff, Microscope, Baby, Scan, GlassWater, Monitor,
-  Phone, CheckCircle, Quote
+  EyeOff, Microscope, Baby, GlassWater, Monitor, Crosshair,
+  Phone, Quote
 } from "lucide-react";
 import StatCounter from "@/components/StatCounter";
 import DoctorCard from "@/components/DoctorCard";
@@ -15,7 +15,7 @@ export default function HomePage() {
   const lp = (href: string) => `/${locale}${href}`;
 
   const stats = [
-    { value: "20+", label: t("stats.years") },
+    { value: "14+", label: t("stats.years") },
     { value: "15,000+", label: t("stats.patients") },
     { value: "5,000+", label: t("stats.surgeries") },
     { value: "6", label: t("stats.doctors") },
@@ -23,19 +23,19 @@ export default function HomePage() {
 
   const services = [
     { icon: Eye, key: "cataract", color: "bg-teal-50 text-[#0f766e]" },
-    { icon: Scan, key: "lasik", color: "bg-amber-50 text-amber-600" },
     { icon: EyeOff, key: "glaucoma", color: "bg-blue-50 text-blue-600" },
     { icon: Microscope, key: "retina", color: "bg-purple-50 text-purple-600" },
     { icon: Baby, key: "pediatric", color: "bg-pink-50 text-pink-600" },
     { icon: GlassWater, key: "diabetic", color: "bg-orange-50 text-orange-600" },
     { icon: Stethoscope, key: "specs", color: "bg-green-50 text-green-600" },
     { icon: Monitor, key: "cvs", color: "bg-indigo-50 text-indigo-600" },
+    { icon: Crosshair, key: "squint", color: "bg-rose-50 text-rose-600" },
   ] as const;
 
   const doctors = [
-    { name: "Dr. Ramesh Naik", spec: "Cataract & LASIK Specialist", exp: 18, qual: "MBBS, MS (Ophthalmology)", consults: "Mon, Wed, Fri", photo: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=500&q=80" },
-    { name: "Dr. Suma Hegde", spec: "Retina & Vitreous Surgeon", exp: 14, qual: "MBBS, MS, FRCS (Retina)", consults: "Tue, Thu, Sat", photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=500&q=80" },
-    { name: "Dr. Anand Kamat", spec: "Pediatric Ophthalmology", exp: 10, qual: "MBBS, DNB (Ophthalmology)", consults: "Mon – Fri", photo: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&h=500&q=80" },
+    { name: "Dr. Sharad Anil Kolvekar", spec: "Cataract & Squint Specialist", exp: 15, qual: "MBBS, MS, FIGO — Sankara Eye Hospital", consults: "All Days", photo: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=500&q=80" },
+    { name: "Dr. Siddhi Pandit", spec: "Cataract & Medical Retina Specialist", exp: 10, qual: "MBBS, MS, DNB, Fellowship in Medical Retina — Aravind Eye Hospitals", consults: "All Days", photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=500&q=80" },
+    { name: "Dr. Ravindra Bhat", spec: "Cataract & Glaucoma Surgeon", exp: 12, qual: "MBBS, D.O, DNB, FPRS", consults: "All Days", photo: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&h=500&q=80" },
   ];
 
   const testimonials = [
@@ -59,11 +59,29 @@ export default function HomePage() {
   return (
     <div>
       {/* ─── HERO ─── */}
-      <section className="relative bg-gradient-to-br from-[#0f766e] via-[#0d9488] to-[#0891b2] overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-white" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white" />
-        </div>
+      <section className="relative bg-[#0a4a45] overflow-hidden">
+        {/* Background video — poster image shown on slow connections */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        >
+          {/* Primary: girl on an eyesight test with an ophthalmologist */}
+          <source
+            src="https://assets.mixkit.co/videos/preview/mixkit-girl-on-an-eyesight-test-with-an-ophthalmologist-39501-large.mp4"
+            type="video/mp4"
+          />
+          {/* Fallback: doctor examining patient with slit lamp */}
+          <source
+            src="https://assets.mixkit.co/videos/preview/mixkit-doctor-doing-an-eye-examination-to-his-patient-4891-large.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Dark gradient overlay so text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f766e]/80 via-[#0d9488]/70 to-[#0a4a45]/90" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 md:py-28 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div>
             <span className="hero-badge inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-medium px-3 py-1.5 rounded-full mb-5 sm:mb-6">
@@ -93,40 +111,15 @@ export default function HomePage() {
               </a>
             </div>
           </div>
+        </div>
 
-          {/* Hero visual card */}
-          <div className="hero-card hidden md:flex justify-center">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 w-80">
-              <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
-                <Eye className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-white font-bold text-xl text-center mb-6">Quick Contact</h3>
-              <div className="space-y-3 text-sm text-teal-100">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <a href="tel:+919019725332" className="hover:text-white transition-colors">+91 90197 25332</a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>Mon – Sat: 9 AM – 6 PM</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-amber-300" />
-                  <span>Walk-ins Welcome</span>
-                </div>
-              </div>
-              <Link
-                href={lp("/appointments")}
-                className="mt-5 block text-center bg-amber-500 hover:bg-amber-400 text-white font-semibold py-2.5 rounded-lg transition-colors text-sm"
-              >
-                {t("heroCta")}
-              </Link>
-            </div>
-          </div>
+        {/* Walk-in banner — pinned to bottom of hero */}
+        <div className="relative z-10 bg-amber-400/90 backdrop-blur-sm py-2.5 px-4 text-center">
+          <p className="text-amber-900 font-bold text-sm sm:text-base tracking-wide">
+            Walk-ins Welcome — No Appointment Necessary! Just come in during working hours.
+          </p>
         </div>
       </section>
-
-      {/* ─── STATS ─── */}
       <section className="bg-white border-b border-stone-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
           {stats.map(({ value, label }, i) => (

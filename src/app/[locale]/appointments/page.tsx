@@ -64,8 +64,8 @@ export default function AppointmentsPage() {
               <Clock className="w-4 h-4 text-[#0f766e] mt-0.5 shrink-0" />
               <div>
                 <p className="font-medium text-stone-800">Working Hours</p>
-                <p>Mon – Sat: 9:00 AM – 6:00 PM</p>
-                <p className="text-stone-400">Sunday: Closed</p>
+                <p>All Days: 9:30 AM – 1:30 PM</p>
+                <p className="text-stone-400">All Days: 4:00 PM – 6:00 PM</p>
               </div>
             </div>
             <div className="flex items-start gap-3 text-sm text-stone-600">

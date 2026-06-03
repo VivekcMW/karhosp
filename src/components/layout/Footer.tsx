@@ -110,11 +110,6 @@ export default function Footer() {
                   {t("termsOfUse")}
                 </Link>
               </li>
-              <li>
-                <Link href={localePath("/sample-logos")} className="text-teal-100 hover:text-white text-sm transition-colors">
-                  Sample Logos
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
