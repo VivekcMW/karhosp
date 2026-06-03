@@ -47,7 +47,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="font-semibold text-stone-800 mb-1">{t("email")}</p>
-                <a href="mailto:info@karwareyehospital.com" className="text-stone-500 text-sm hover:text-[#0f766e]">info@karwareyehospital.com</a>
+                <a href="mailto:karwareyeclinic52@gmail.com" className="text-stone-500 text-sm hover:text-[#0f766e]">karwareyeclinic52@gmail.com</a>
               </div>
             </div>
 

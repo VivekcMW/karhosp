@@ -84,7 +84,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-2 items-center">
                 <Mail className="w-4 h-4 shrink-0" />
-                <a href="mailto:info@karwareyehospital.com" className="hover:text-white transition-colors break-all">info@karwareyehospital.com</a>
+                <a href="mailto:karwareyeclinic52@gmail.com" className="hover:text-white transition-colors break-all">karwareyeclinic52@gmail.com</a>
               </li>
               <li className="flex gap-2 items-start">
                 <Clock className="w-4 h-4 mt-0.5 shrink-0" />

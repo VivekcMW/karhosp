@@ -44,7 +44,7 @@ export default function Navbar() {
         <span className="flex items-center gap-1.5 min-w-0">
           <Phone className="w-3 h-3 shrink-0" />
           <a href="tel:+919019725332" className="truncate hover:text-white transition-colors">+91 90197 25332</a>
-          <a href="mailto:info@karwareyehospital.com" className="hidden xs:inline hover:text-white transition-colors">&nbsp;|&nbsp; info@karwareyehospital.com</a>
+          <a href="mailto:karwareyeclinic52@gmail.com" className="hidden xs:inline hover:text-white transition-colors">&nbsp;|&nbsp; karwareyeclinic52@gmail.com</a>
         </span>
         <HospitalStatus variant="topbar" />
       </div>
