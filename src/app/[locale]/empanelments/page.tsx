@@ -1,6 +1,6 @@
 import { useLocale } from "next-intl";
 import Link from "next/link";
-import { ShieldCheck, Building2, HeartPulse, Users, ChevronRight, BadgeCheck, Phone, FileText } from "lucide-react";
+import { ShieldCheck, ChevronRight, BadgeCheck, Phone, FileText } from "lucide-react";
 
 type Empanelment = {
   name: string;
@@ -8,108 +8,47 @@ type Empanelment = {
   desc: string;
 };
 
-type Category = {
-  id: string;
-  title: string;
-  subtitle: string;
-  icon: React.ElementType;
-  accentBar: string;
-  iconBg: string;
-  iconColor: string;
-  badgeBg: string;
-  badgeText: string;
-  cardLeft: string;
-  items: Empanelment[];
-};
-
-const CATEGORIES: Category[] = [
-  {
-    id: "govt",
-    title: "Government Schemes",
-    subtitle: "Central & State government health programmes",
-    icon: ShieldCheck,
-    accentBar: "bg-teal-500",
-    iconBg: "bg-teal-50",
-    iconColor: "text-teal-600",
-    badgeBg: "bg-teal-100",
-    badgeText: "text-teal-700",
-    cardLeft: "border-l-4 border-l-teal-400",
-    items: [
-      { name: "Ayushman Bharat – PM-JAY", type: "Central Govt.", desc: "Cashless treatment up to ₹5 lakh per family under Pradhan Mantri Jan Arogya Yojana." },
-      { name: "Arogya Karnataka", type: "State Govt.", desc: "Karnataka State health insurance for government employees and BPL families." },
-      { name: "CGHS", type: "Central Govt.", desc: "Comprehensive healthcare for Central Government employees, pensioners and dependents." },
-      { name: "ECHS", type: "Defence", desc: "Cashless medical facilities for retired defence personnel and their dependents." },
-      { name: "ESIC", type: "Labour Ministry", desc: "Health coverage for organised-sector employees under ESI Act, 1948." },
-      { name: "Railway Health Service (RHS)", type: "Railways", desc: "Medical care for railway employees and their families." },
-      { name: "Karnataka Govt. Employees Health Scheme", type: "State Govt.", desc: "Mediclaim benefit for Karnataka State Government servants." },
-      { name: "Department of Posts Health Scheme", type: "Central Govt.", desc: "Health benefits for India Post employees and their dependants." },
-    ],
-  },
-  {
-    id: "psu",
-    title: "PSU & Corporate",
-    subtitle: "Public sector undertakings operating in the region",
-    icon: Building2,
-    accentBar: "bg-blue-500",
-    iconBg: "bg-blue-50",
-    iconColor: "text-blue-600",
-    badgeBg: "bg-blue-100",
-    badgeText: "text-blue-700",
-    cardLeft: "border-l-4 border-l-blue-400",
-    items: [
-      { name: "ONGC", type: "PSU", desc: "Medical facility for ONGC employees at Karwar and Uttara Kannada region." },
-      { name: "KPTCL", type: "State PSU", desc: "Eye care for Karnataka Power Transmission Corporation employees and dependents." },
-      { name: "KPCL", type: "State PSU", desc: "Medical empanelment for Karnataka Power Corporation staff in Uttara Kannada." },
-      { name: "Konkan Railway Corporation (KRCL)", type: "PSU", desc: "Eye care services for Konkan Railway employees and families." },
-    ],
-  },
-  {
-    id: "insurance",
-    title: "Insurance & TPA Panels",
-    subtitle: "Cashless & reimbursement with all major health insurers",
-    icon: HeartPulse,
-    accentBar: "bg-rose-500",
-    iconBg: "bg-rose-50",
-    iconColor: "text-rose-600",
-    badgeBg: "bg-rose-100",
-    badgeText: "text-rose-700",
-    cardLeft: "border-l-4 border-l-rose-400",
-    items: [
-      { name: "Star Health & Allied Insurance", type: "Private", desc: "Cashless claims across all Star Health policy variants." },
-      { name: "New India Assurance", type: "Public", desc: "India's largest non-life insurer — mediclaim & health policies." },
-      { name: "United India Insurance", type: "Public", desc: "Empaneled for United India health and mediclaim products." },
-      { name: "National Insurance Company", type: "Public", desc: "Mediclaim & group health insurance policies." },
-      { name: "Oriental Insurance Company", type: "Public", desc: "Happy Family Floater, Individual Mediclaim and group health plans." },
-      { name: "HDFC ERGO Health Insurance", type: "Private", desc: "My:health Suraksha and Optima plans (formerly Apollo Munich)." },
-      { name: "Bajaj Allianz Health Insurance", type: "Private", desc: "Health Guard, Critical Illness and group health plans." },
-      { name: "Niva Bupa Health Insurance", type: "Private", desc: "ReAssure and Health Companion policyholders." },
-      { name: "Care Health Insurance", type: "Private", desc: "Care, Care Freedom and Care Classic policyholders." },
-      { name: "Reliance Health Insurance", type: "Private", desc: "Health Infinity and HealthGain plan holders." },
-      { name: "Medi Assist TPA", type: "TPA", desc: "One of India's leading TPAs — processes claims for multiple insurers." },
-      { name: "Raksha TPA", type: "TPA", desc: "TPA services for PSU and private insurance companies." },
-      { name: "Vipul Medcorp TPA", type: "TPA", desc: "Claims processing for New India, Oriental and national insurer policies." },
-      { name: "Heritage Health TPA", type: "TPA", desc: "Cashless and reimbursement claim management." },
-      { name: "Paramount Health Services TPA", type: "TPA", desc: "End-to-end managed care and TPA services." },
-    ],
-  },
-  {
-    id: "ngo",
-    title: "NGO & Community Partners",
-    subtitle: "Extending eye care to the underserved",
-    icon: Users,
-    accentBar: "bg-amber-500",
-    iconBg: "bg-amber-50",
-    iconColor: "text-amber-600",
-    badgeBg: "bg-amber-100",
-    badgeText: "text-amber-700",
-    cardLeft: "border-l-4 border-l-amber-400",
-    items: [
-      { name: "Rotary Club of Karwar", type: "NGO", desc: "Annual free eye camps and cataract surgery drives for BPL patients." },
-      { name: "Lions Club International – Karwar", type: "NGO", desc: "Vision screening and glasses distribution for school children." },
-      { name: "District Blindness Control Society (DBCS)", type: "Govt. Programme", desc: "NPCB cataract surgeries under National Programme for Control of Blindness." },
-    ],
-  },
+const EMPANELMENTS: Empanelment[] = [
+  { name: "Digit Insurance", type: "Private", desc: "Cashless & reimbursement health insurance across Digit policy variants." },
+  { name: "Manipal CIGNA", type: "Private", desc: "Complete health solutions under the Manipal CIGNA network." },
+  { name: "HDFC ERGO General Insurance", type: "Private", desc: "Comprehensive health plans including Optima and Energy series." },
+  { name: "IFFCO Tokio Insurance", type: "Private", desc: "Health insurance coverage under IFFCO Tokio general insurance plans." },
+  { name: "ICICI Lombard Insurance", type: "Private", desc: "Cashless treatment for ICICI Lombard health insurance policyholders." },
+  { name: "ACKO General Insurance Company", type: "Private", desc: "Paperless and cashless claims for ACKO health insurance customers." },
+  { name: "Star Health Insurance", type: "Private", desc: "Cashless claims across all Star Health policy variants." },
+  { name: "Reliance General Insurance", type: "Private", desc: "Health insurance plans under Reliance General Insurance." },
+  { name: "Bajaj General Insurance Ltd", type: "Private", desc: "Health Guard, Critical Illness and group health plans." },
+  { name: "Care Health Insurance", type: "Private", desc: "Care, Care Freedom and Care Classic policyholders." },
+  { name: "Aditya Birla Health Insurance Co. Ltd", type: "Private", desc: "Activ Health and comprehensive health plans from Aditya Birla." },
+  { name: "Liberty General Insurance", type: "Private", desc: "Health insurance coverage under Liberty General Insurance plans." },
+  { name: "NAVI General Insurance Ltd", type: "Private", desc: "Health insurance plans with cashless facility for NAVI customers." },
+  { name: "Galaxy Health Insurance", type: "Private", desc: "Health insurance coverage under Galaxy Health Insurance plans." },
+  { name: "Generali Central Insurance Co. Ltd", type: "Private", desc: "Cashless healthcare services for Generali policyholders." },
+  { name: "SBI General Insurance", type: "Public", desc: "Comprehensive health insurance plans from SBI General Insurance." },
+  { name: "Universal Sompo General Insurance Company Limited", type: "Private", desc: "Health insurance coverage under Universal Sompo plans." },
+  { name: "Cholamandalam MS General Insurance Co. Ltd", type: "Private", desc: "Health insurance coverage for Chola MS policyholders." },
+  { name: "Health Insurance TPA", type: "TPA", desc: "Third-party claim processing for multiple health insurance policies." },
+  { name: "Link Insurance TPA Pvt. Ltd", type: "TPA", desc: "TPA services for cashless authorisation and claim settlement." },
+  { name: "Heritage Health Insurance TPA", type: "TPA", desc: "Cashless and reimbursement claim management." },
+  { name: "MD India Health Insurance TPA", type: "TPA", desc: "End-to-end TPA services for cashless hospitalisation." },
+  { name: "Health Assist Insurance TPA Pvt. Ltd", type: "TPA", desc: "TPA services for cashless and reimbursement claim processing." },
+  { name: "Mediassist TPA", type: "TPA", desc: "One of India's leading TPAs — processes claims for multiple insurers." },
 ];
+
+const TYPE_STYLES: Record<string, { badge: string; leftBorder: string }> = {
+  Private: {
+    badge: "bg-rose-100 text-rose-700",
+    leftBorder: "border-l-rose-400",
+  },
+  Public: {
+    badge: "bg-blue-100 text-blue-700",
+    leftBorder: "border-l-blue-400",
+  },
+  TPA: {
+    badge: "bg-purple-100 text-purple-700",
+    leftBorder: "border-l-purple-400",
+  },
+};
 
 const STEPS = [
   { icon: BadgeCheck, title: "Show Your Card", desc: "Present your health card, insurance card or government ID at our registration counter." },
@@ -121,14 +60,11 @@ export default function EmpanelmentsPage() {
   const locale = useLocale();
   const lp = (href: string) => `/${locale}${href}`;
 
-  const totalItems = CATEGORIES.reduce((acc, c) => acc + c.items.length, 0);
-
   return (
     <div className="bg-[#fafaf9]">
 
       {/* ── Hero ── */}
       <section className="relative bg-gradient-to-br from-[#0f766e] to-[#0d9488] overflow-hidden">
-        {/* Subtle geometric background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white -translate-x-1/2 translate-y-1/2" />
@@ -142,17 +78,16 @@ export default function EmpanelmentsPage() {
             <span className="text-amber-300">Fully Covered</span>
           </h1>
           <p className="hero-sub text-teal-100 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Karwar Eye Hospital is empaneled with major government schemes, PSUs, insurance companies and TPAs — so you can focus on getting better, not on billing.
+            Karwar Eye Hospital is empaneled with major insurance companies and TPAs — so you can focus on getting better, not on billing.
           </p>
-          {/* Stats strip */}
           <div className="mt-8 inline-grid grid-cols-3 divide-x divide-white/20 bg-white/15 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20">
             <div className="px-3 sm:px-6 py-3 sm:py-4">
-              <p className="text-xl sm:text-2xl font-bold text-white">{totalItems}+</p>
+              <p className="text-xl sm:text-2xl font-bold text-white">{EMPANELMENTS.length}</p>
               <p className="text-teal-200 text-[10px] sm:text-xs mt-0.5">Empanelments</p>
             </div>
             <div className="px-3 sm:px-6 py-3 sm:py-4">
-              <p className="text-xl sm:text-2xl font-bold text-white">{CATEGORIES.length}</p>
-              <p className="text-teal-200 text-[10px] sm:text-xs mt-0.5">Categories</p>
+              <p className="text-xl sm:text-2xl font-bold text-white">24/7</p>
+              <p className="text-teal-200 text-[10px] sm:text-xs mt-0.5">Cashless Support</p>
             </div>
             <div className="px-3 sm:px-6 py-3 sm:py-4">
               <p className="text-xl sm:text-2xl font-bold text-amber-300">Cashless</p>
@@ -171,7 +106,6 @@ export default function EmpanelmentsPage() {
               const Icon = step.icon;
               return (
                 <div key={step.title} className="relative flex gap-4 items-start">
-                  {/* Connector line */}
                   {i < STEPS.length - 1 && (
                     <div className="hidden sm:block absolute top-5 left-[calc(100%-1rem)] w-full h-px bg-stone-200 z-0" />
                   )}
@@ -189,53 +123,28 @@ export default function EmpanelmentsPage() {
         </div>
       </section>
 
-      {/* ── Categories ── */}
+      {/* ── Empanelments Grid ── */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-14">
-          {CATEGORIES.map((cat) => {
-            const Icon = cat.icon;
-            return (
-              <div key={cat.id} className="reveal">
-                {/* Category header row */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-11 h-11 rounded-md flex items-center justify-center shrink-0 shadow-sm ${cat.iconBg}`}>
-                    <Icon className={`w-5 h-5 ${cat.iconColor}`} />
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+            {EMPANELMENTS.map((item) => {
+              const styles = TYPE_STYLES[item.type] ?? TYPE_STYLES.Private;
+              return (
+                <div
+                  key={item.name}
+                  className={`bg-white rounded-md shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col overflow-hidden border-l-4 ${styles.leftBorder}`}
+                >
+                  <div className="p-4 flex flex-col gap-2 flex-1">
+                    <p className="font-semibold text-stone-800 text-sm leading-snug">{item.name}</p>
+                    <p className="text-stone-400 text-xs leading-relaxed flex-1">{item.desc}</p>
+                    <span className={`self-start text-[10px] font-bold px-2 py-0.5 rounded-full mt-1 ${styles.badge}`}>
+                      {item.type}
+                    </span>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <h2 className="text-xl font-bold text-stone-800">{cat.title}</h2>
-                      <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${cat.badgeBg} ${cat.badgeText}`}>
-                        {cat.items.length} listed
-                      </span>
-                    </div>
-                    <p className="text-stone-400 text-sm mt-0.5">{cat.subtitle}</p>
-                  </div>
-                  {/* Accent rule */}
-                  <div className={`hidden sm:block flex-1 h-0.5 rounded-full opacity-30 ${cat.accentBar}`} />
                 </div>
-
-                {/* Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-                  {cat.items.map((item) => (
-                    <div
-                      key={item.name}
-                      className={`bg-white rounded-md shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col overflow-hidden ${cat.cardLeft}`}
-                    >
-                      <div className="p-4 flex flex-col gap-2 flex-1">
-                        <div className="flex items-start justify-between gap-2">
-                          <p className="font-semibold text-stone-800 text-sm leading-snug">{item.name}</p>
-                        </div>
-                        <p className="text-stone-400 text-xs leading-relaxed flex-1">{item.desc}</p>
-                        <span className={`self-start text-[10px] font-bold px-2 py-0.5 rounded-full mt-1 ${cat.badgeBg} ${cat.badgeText}`}>
-                          {item.type}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -263,4 +172,3 @@ export default function EmpanelmentsPage() {
     </div>
   );
 }
-

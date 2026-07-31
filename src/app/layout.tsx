@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${poppins.variable} scroll-smooth`}>
+    <html lang="en" className={`${poppins.variable} scroll-smooth overflow-x-hidden`}>
       <body className="font-sans antialiased flex flex-col min-h-screen bg-[#fefdf8] text-[#1c1917] overflow-x-hidden">
         {children}
       </body>

@@ -65,7 +65,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden lg:flex items-center gap-4 xl:gap-6">
           {navLinks.map(({ key, href }) => {
             const isActive = pathname === localePath(href) || (href !== "/" && pathname.startsWith(localePath(href)));
             return (
@@ -101,7 +101,7 @@ export default function Navbar() {
           {/* Book CTA */}
           <Link
             href={localePath("/appointments")}
-            className="hidden md:inline-flex bg-[#0f766e] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0d6b63] transition-colors"
+            className="hidden lg:inline-flex bg-[#0f766e] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0d6b63] transition-colors"
           >
             {t("appointments")}
           </Link>
@@ -109,7 +109,7 @@ export default function Navbar() {
           {/* Mobile menu toggle */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden p-2 rounded-lg text-stone-600 hover:bg-stone-100"
+            className="lg:hidden p-3 rounded-lg text-stone-600 hover:bg-stone-100"
             aria-label="Toggle menu"
           >
             {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -119,7 +119,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-stone-100 px-4 pb-5 pt-2 space-y-0.5">
+        <div className="lg:hidden bg-white border-t border-stone-100 px-4 pb-5 pt-2 space-y-0.5">
           {navLinks.map(({ key, href }) => {
             const isActive = pathname === localePath(href) || (href !== "/" && pathname.startsWith(localePath(href)));
             return (

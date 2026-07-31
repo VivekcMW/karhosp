@@ -35,7 +35,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Karwar Eye Hospital on Instagram"
-                className="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
+                className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {(["home", "about", "services", "doctors", "empanelments", "gallery", "appointments", "contact"] as const).map((key) => (
                 <li key={key}>
-                  <Link href={localePath(key === "home" ? "/" : `/${key}`)} className="text-teal-100 hover:text-white text-sm transition-colors">
+                  <Link href={localePath(key === "home" ? "/" : `/${key}`)} className="text-teal-100 hover:text-white text-sm transition-colors block py-1">
                     {tn(key)}
                   </Link>
                 </li>

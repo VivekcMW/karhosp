@@ -86,13 +86,13 @@ export default function DoctorCard({
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="flex-1 flex items-center justify-center bg-[#f0fdfa] hover:bg-teal-100 text-[#0f766e] text-xs font-semibold py-2.5 rounded-md transition-colors"
+            className="flex-1 flex items-center justify-center bg-[#f0fdfa] hover:bg-teal-100 text-[#0f766e] text-xs font-semibold py-3 rounded-md transition-colors"
           >
             View Profile
           </button>
           <Link
             href={lp("/appointments")}
-            className="flex-1 flex items-center justify-center gap-1.5 bg-[#0f766e] hover:bg-[#0d6b63] text-white text-xs font-semibold py-2.5 rounded-md transition-colors"
+            className="flex-1 flex items-center justify-center gap-1.5 bg-[#0f766e] hover:bg-[#0d6b63] text-white text-xs font-semibold py-3 rounded-md transition-colors"
           >
             <Calendar className="w-3.5 h-3.5 shrink-0" />
             Book
@@ -143,7 +143,7 @@ export default function DoctorCard({
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
-                    className="absolute top-3 right-3 w-8 h-8 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-colors shadow-sm"
+                    className="absolute top-3 right-3 w-11 h-11 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-colors shadow-sm"
                     aria-label="Close"
                   >
                     <X className="w-4 h-4 text-stone-600" />
@@ -155,26 +155,26 @@ export default function DoctorCard({
                   <div className="bg-[#f0fdfa] rounded-md py-3 text-center">
                     <Award className="w-4 h-4 text-[#0f766e] mx-auto mb-1" />
                     <p className="text-sm font-bold text-stone-800">{doc.exp}+</p>
-                    <p className="text-[10px] text-stone-500">Yrs Exp</p>
+                    <p className="text-xs text-stone-500">Yrs Exp</p>
                   </div>
                   <div className="bg-amber-50 rounded-md py-3 px-1 text-center">
                     <GraduationCap className="w-4 h-4 text-amber-600 mx-auto mb-1" />
-                    <p className="text-[11px] font-bold text-stone-800 leading-tight">
+                    <p className="text-xs font-bold text-stone-800 leading-tight">
                       {doc.qual.split(",")[0].trim()}
                     </p>
-                    <p className="text-[10px] text-stone-500 mt-0.5">Degree</p>
+                    <p className="text-xs text-stone-500 mt-0.5">Degree</p>
                   </div>
                   <div className="bg-blue-50 rounded-md py-3 px-1 text-center">
                     <Clock className="w-4 h-4 text-blue-600 mx-auto mb-1" />
-                    <p className="text-[11px] font-bold text-stone-800 leading-tight">
+                    <p className="text-xs font-bold text-stone-800 leading-tight">
                       {doc.consults}
                     </p>
-                    <p className="text-[10px] text-stone-500 mt-0.5">Available</p>
+                    <p className="text-xs text-stone-500 mt-0.5">Available</p>
                   </div>
                 </div>
 
                 {/* Full qualification */}
-                <p className="text-[11px] text-stone-400 text-center px-4 pt-2 pb-1">
+                <p className="text-xs text-stone-400 text-center px-4 pt-2 pb-1">
                   {doc.qual}
                 </p>
 

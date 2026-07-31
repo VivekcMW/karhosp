@@ -339,7 +339,7 @@ export default function GalleryPage() {
           {/* Close */}
           <button
             type="button"
-            className="absolute top-4 right-4 z-10 text-white/80 hover:text-white p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+            className="absolute top-[max(1rem,env(safe-area-inset-top))] right-4 z-10 text-white/80 hover:text-white p-3 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
             onClick={closeLightbox}
             aria-label="Close"
           >
@@ -349,22 +349,22 @@ export default function GalleryPage() {
           {/* Prev */}
           <button
             type="button"
-            className="absolute left-3 sm:left-5 z-10 text-white/80 hover:text-white p-3 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+            className="absolute left-2 sm:left-5 z-10 text-white/80 hover:text-white p-2.5 sm:p-3 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
             onClick={prev}
             aria-label="Previous image"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Image */}
-          <div className="relative z-10 max-w-5xl w-full mx-auto px-10 sm:px-16 flex flex-col items-center">
+          <div className="relative z-10 max-w-5xl w-full mx-auto px-12 sm:px-20 flex flex-col items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={filtered[lightboxIndex].src.replace("w=800", "w=1400")}
               alt={filtered[lightboxIndex].alt}
-              className="max-h-[62vh] w-auto mx-auto rounded-md object-contain shadow-2xl"
+              className="max-h-[55vh] sm:max-h-[62vh] w-auto mx-auto rounded-md object-contain shadow-2xl"
             />
-            <p className="text-white/75 text-sm text-center mt-3 leading-snug px-4">
+            <p className="text-white/75 text-xs sm:text-sm text-center mt-3 leading-snug px-4">
               {filtered[lightboxIndex].alt}
             </p>
             <p className="text-white/35 text-xs text-center mt-1 tabular-nums">
@@ -375,7 +375,7 @@ export default function GalleryPage() {
           {/* Next */}
           <button
             type="button"
-            className="absolute right-3 sm:right-5 z-10 text-white/80 hover:text-white p-3 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+            className="absolute right-2 sm:right-5 z-10 text-white/80 hover:text-white p-2.5 sm:p-3 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
             onClick={next}
             aria-label="Next image"
           >
@@ -383,7 +383,7 @@ export default function GalleryPage() {
           </button>
 
           {/* ── Thumbnail strip ── */}
-          <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/80 to-transparent pt-6 pb-4 px-4">
+          <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/80 to-transparent pt-6 px-4" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
             <div
               ref={thumbStripRef}
               className="flex gap-2 overflow-x-auto scrollbar-none justify-start items-center max-w-5xl mx-auto"
@@ -402,7 +402,7 @@ export default function GalleryPage() {
                         ? "ring-2 ring-white scale-110 opacity-100"
                         : "opacity-50 hover:opacity-80 hover:scale-105"
                     }`}
-                    style={{ width: 56, height: 40 }}
+                    style={{ width: 56, height: 44 }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img

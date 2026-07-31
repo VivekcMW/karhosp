@@ -82,8 +82,8 @@ export default function HomePage() {
         </video>
         {/* Dark gradient overlay so text stays readable */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0f766e]/80 via-[#0d9488]/70 to-[#0a4a45]/90" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 md:py-28 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
-          <div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 md:py-28">
+          <div className="max-w-3xl mx-auto text-center">
             <span className="hero-badge inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-medium px-3 py-1.5 rounded-full mb-5 sm:mb-6">
               <Award className="w-3.5 h-3.5" /> Karwar's Trusted Eye Care Centre
             </span>
@@ -94,7 +94,7 @@ export default function HomePage() {
             <p className="hero-sub text-teal-100 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
               {t("heroSubtitle")}
             </p>
-            <div className="hero-cta flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+            <div className="hero-cta flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
               <Link
                 href={lp("/appointments")}
                 className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-lg w-full sm:w-auto"
@@ -231,22 +231,26 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-stone-800">Accepted Insurance &amp; Schemes</h2>
-            <p className="text-stone-500 mt-2 text-sm sm:text-base">We're empaneled with government health programmes, PSUs, and major insurance companies</p>
+            <p className="text-stone-500 mt-2 text-sm sm:text-base">We're empaneled with major insurance companies and TPAs for cashless treatment</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {[
-              { name: "Ayushman Bharat PM-JAY", badge: "Central Govt.", color: "bg-teal-50 border-teal-200 text-teal-700" },
-              { name: "CGHS", badge: "Central Govt.", color: "bg-teal-50 border-teal-200 text-teal-700" },
-              { name: "ECHS", badge: "Defence", color: "bg-teal-50 border-teal-200 text-teal-700" },
-              { name: "ESIC", badge: "Labour Min.", color: "bg-teal-50 border-teal-200 text-teal-700" },
-              { name: "Arogya Karnataka", badge: "State Govt.", color: "bg-teal-50 border-teal-200 text-teal-700" },
-              { name: "Star Health", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "New India Assurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "HDFC ERGO Health", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Bajaj Allianz Health", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Niva Bupa", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Medi Assist TPA", badge: "TPA", color: "bg-blue-50 border-blue-200 text-blue-700" },
-              { name: "Railway Health Service", badge: "Railways", color: "bg-teal-50 border-teal-200 text-teal-700" },
+              { name: "Digit Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Manipal CIGNA", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "HDFC ERGO General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "ICICI Lombard Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Star Health Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Care Health Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Bajaj General Insurance Ltd", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Aditya Birla Health Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "SBI General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "ACKO General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Liberty General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "NAVI General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "IFFCO Tokio Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Mediassist TPA", badge: "TPA", color: "bg-purple-50 border-purple-200 text-purple-700" },
+              { name: "Link Insurance TPA", badge: "TPA", color: "bg-purple-50 border-purple-200 text-purple-700" },
+              { name: "Health Insurance TPA", badge: "TPA", color: "bg-purple-50 border-purple-200 text-purple-700" },
             ].map((item) => (
               <div key={item.name} className={`reveal border rounded-md px-4 py-3 flex flex-col gap-1 ${item.color}`}>
                 <p className="font-semibold text-sm leading-snug text-stone-800">{item.name}</p>
@@ -256,7 +260,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-6">
             <Link href={lp("/empanelments")} className="inline-flex items-center gap-1.5 text-[#0f766e] font-semibold text-sm hover:underline">
-              View all {">"}30 empanelments <ChevronRight className="w-4 h-4" />
+              View all 24+ empanelments <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
