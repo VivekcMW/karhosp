@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Award, Calendar, Clock, GraduationCap, X } from "lucide-react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -23,6 +24,7 @@ export default function DoctorCard({
   locale: string;
   delayClass: string;
 }) {
+  const t = useTranslations("doctorCard");
   const [open, setOpen] = useState(false);
   const lp = (href: string) => `/${locale}${href}`;
 
@@ -53,7 +55,7 @@ export default function DoctorCard({
           type="button"
           onClick={() => setOpen(true)}
           className="text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e] rounded-t-md"
-          aria-label={`View profile of ${doc.name}`}
+          aria-label={t("viewProfileOf", { name: doc.name })}
         >
           <div className="mx-3 mt-3 rounded-md bg-[#ccfbf1] overflow-hidden h-56 flex items-end justify-center">
             <img
@@ -70,7 +72,7 @@ export default function DoctorCard({
             <p className="text-stone-400 text-xs text-center leading-snug">{doc.qual}</p>
             <div className="flex items-center justify-center gap-3 mt-2">
               <span className="text-xs text-stone-500">
-                <span className="font-bold text-stone-700">{doc.exp}+</span> yrs exp
+                <span className="font-bold text-stone-700">{doc.exp}+</span> {t("yrsExp")}
               </span>
               <span className="w-px h-3.5 bg-stone-200" />
               <div className="flex items-center gap-1 text-xs text-[#0f766e] font-medium">
@@ -88,14 +90,14 @@ export default function DoctorCard({
             onClick={() => setOpen(true)}
             className="flex-1 flex items-center justify-center bg-[#f0fdfa] hover:bg-teal-100 text-[#0f766e] text-xs font-semibold py-3 rounded-md transition-colors"
           >
-            View Profile
+            {t("viewProfile")}
           </button>
           <Link
             href={lp("/appointments")}
             className="flex-1 flex items-center justify-center gap-1.5 bg-[#0f766e] hover:bg-[#0d6b63] text-white text-xs font-semibold py-3 rounded-md transition-colors"
           >
             <Calendar className="w-3.5 h-3.5 shrink-0" />
-            Book
+            {t("book")}
           </Link>
         </div>
       </div>
@@ -124,7 +126,7 @@ export default function DoctorCard({
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               role="dialog"
               aria-modal="true"
-              aria-label={`Profile of ${doc.name}`}
+              aria-label={t("profileOf", { name: doc.name })}
               className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
             >
               <div className="bg-white rounded-md shadow-2xl w-full max-w-sm overflow-hidden pointer-events-auto">
@@ -144,7 +146,7 @@ export default function DoctorCard({
                     type="button"
                     onClick={() => setOpen(false)}
                     className="absolute top-3 right-3 w-11 h-11 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-colors shadow-sm"
-                    aria-label="Close"
+                    aria-label={t("close")}
                   >
                     <X className="w-4 h-4 text-stone-600" />
                   </button>
@@ -155,21 +157,21 @@ export default function DoctorCard({
                   <div className="bg-[#f0fdfa] rounded-md py-3 text-center">
                     <Award className="w-4 h-4 text-[#0f766e] mx-auto mb-1" />
                     <p className="text-sm font-bold text-stone-800">{doc.exp}+</p>
-                    <p className="text-xs text-stone-500">Yrs Exp</p>
+                    <p className="text-xs text-stone-500">{t("yrsExp")}</p>
                   </div>
                   <div className="bg-amber-50 rounded-md py-3 px-1 text-center">
                     <GraduationCap className="w-4 h-4 text-amber-600 mx-auto mb-1" />
                     <p className="text-xs font-bold text-stone-800 leading-tight">
                       {doc.qual.split(",")[0].trim()}
                     </p>
-                    <p className="text-xs text-stone-500 mt-0.5">Degree</p>
+                    <p className="text-xs text-stone-500 mt-0.5">{t("degree")}</p>
                   </div>
                   <div className="bg-blue-50 rounded-md py-3 px-1 text-center">
                     <Clock className="w-4 h-4 text-blue-600 mx-auto mb-1" />
                     <p className="text-xs font-bold text-stone-800 leading-tight">
                       {doc.consults}
                     </p>
-                    <p className="text-xs text-stone-500 mt-0.5">Available</p>
+                    <p className="text-xs text-stone-500 mt-0.5">{t("available")}</p>
                   </div>
                 </div>
 
@@ -186,7 +188,7 @@ export default function DoctorCard({
                     className="flex items-center justify-center gap-2 w-full bg-[#0f766e] hover:bg-[#0d6b63] text-white font-semibold py-3 rounded-md transition-colors text-sm shadow-md"
                   >
                     <Calendar className="w-4 h-4" />
-                    Book Appointment
+                    {t("bookAppointment")}
                   </Link>
                 </div>
               </div>

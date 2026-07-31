@@ -7,10 +7,12 @@ import {
 } from "lucide-react";
 import StatCounter from "@/components/StatCounter";
 import DoctorCard from "@/components/DoctorCard";
+import { DOCTORS } from "@/lib/doctors-data";
 
 export default function HomePage() {
   const t = useTranslations("home");
   const ts = useTranslations("services");
+  const td = useTranslations("doctorsData");
   const locale = useLocale();
   const lp = (href: string) => `/${locale}${href}`;
 
@@ -32,29 +34,18 @@ export default function HomePage() {
     { icon: Crosshair, key: "squint", color: "bg-rose-50 text-rose-600" },
   ] as const;
 
-  const doctors = [
-    { name: "Dr. Sharad Anil Kolvekar", spec: "Cataract & Squint Specialist", exp: 15, qual: "MBBS, MS, FIGO — Sankara Eye Hospital", consults: "All Days", photo: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=500&q=80" },
-    { name: "Dr. Siddhi Pandit", spec: "Cataract & Medical Retina Specialist", exp: 10, qual: "MBBS, MS, DNB, Fellowship in Medical Retina — Aravind Eye Hospitals", consults: "All Days", photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=500&q=80" },
-    { name: "Dr. Ravindra Bhat", spec: "Cataract & Glaucoma Surgeon", exp: 12, qual: "MBBS, D.O, DNB, FPRS", consults: "All Days", photo: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&h=500&q=80" },
-  ];
+  const doctors = DOCTORS.map((d) => ({
+    ...d,
+    spec: td(`${d.id}.spec`),
+    qual: td(`${d.id}.qual`),
+    consults: td(`${d.id}.consults`),
+  }));
 
   const testimonials = [
-    {
-      name: "Priya Desai",
-      text: "After my cataract surgery here, I can see clearly for the first time in years. The staff were so caring and professional.",
-      rating: 5,
-    },
-    {
-      name: "Mohan Shenoy",
-      text: "Dr. Hegde diagnosed my retina problem early. Excellent care and very affordable. I highly recommend this hospital.",
-      rating: 5,
-    },
-    {
-      name: "Leela Naik",
-      text: "My daughter's squint was corrected here. The pediatric team was wonderful with her. Very happy with the results.",
-      rating: 5,
-    },
-  ];
+    { key: "t1", rating: 5 },
+    { key: "t2", rating: 5 },
+    { key: "t3", rating: 5 },
+  ] as const;
 
   return (
     <div>
@@ -85,7 +76,7 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 md:py-28">
           <div className="max-w-3xl mx-auto text-center">
             <span className="hero-badge inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-medium px-3 py-1.5 rounded-full mb-5 sm:mb-6">
-              <Award className="w-3.5 h-3.5" /> Karwar's Trusted Eye Care Centre
+              <Award className="w-3.5 h-3.5" /> {t("badge")}
             </span>
             <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
               {t("heroTitle")}<br />
@@ -107,7 +98,7 @@ export default function HomePage() {
                 className="inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-white font-medium px-6 py-3 rounded-xl transition-colors border border-white/30 w-full sm:w-auto"
               >
                 <Phone className="w-4 h-4" />
-                Call for Appointment
+                {t("callForAppointment")}
               </a>
             </div>
           </div>
@@ -116,7 +107,7 @@ export default function HomePage() {
         {/* Walk-in banner — pinned to bottom of hero */}
         <div className="relative z-10 bg-amber-400/90 backdrop-blur-sm py-2.5 px-4 text-center">
           <p className="text-amber-900 font-bold text-sm sm:text-base tracking-wide">
-            Walk-ins Welcome — No Appointment Necessary! Just come in during working hours.
+            {t("walkinBanner")}
           </p>
         </div>
       </section>
@@ -156,8 +147,8 @@ export default function HomePage() {
           {/* ─── CALL TO BOOK ─── */}
           <div className="reveal mt-10 rounded-2xl bg-gradient-to-r from-[#0f766e] to-[#0d9488] px-6 py-7 sm:px-10 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="text-center sm:text-left">
-              <h3 className="text-white font-bold text-lg sm:text-xl leading-snug">Ready to book your eye check-up?</h3>
-              <p className="text-teal-100 text-sm mt-1">Our specialists are available Mon – Sat, 9 AM – 6 PM</p>
+              <h3 className="text-white font-bold text-lg sm:text-xl leading-snug">{t("bookBannerTitle")}</h3>
+              <p className="text-teal-100 text-sm mt-1">{t("bookBannerSubtitle")}</p>
             </div>
             <div className="flex flex-col xs:flex-row gap-3 shrink-0 w-full sm:w-auto">
               <a
@@ -165,14 +156,14 @@ export default function HomePage() {
                 className="inline-flex items-center justify-center gap-2 bg-white text-[#0f766e] font-semibold px-5 py-3 rounded-xl hover:bg-teal-50 active:scale-[0.97] transition-all text-sm shadow-sm"
               >
                 <Phone className="w-4 h-4" />
-                Call: +91 90197 25332
+                {t("callLabel", { phone: "+91 90197 25332" })}
               </a>
               <Link
                 href={lp("/appointments")}
                 className="inline-flex items-center justify-center gap-2 bg-amber-500 text-white font-semibold px-5 py-3 rounded-xl hover:bg-amber-600 active:scale-[0.97] transition-all text-sm shadow-sm"
               >
                 <Calendar className="w-4 h-4" />
-                Book Online
+                {t("bookOnline")}
               </Link>
             </div>
           </div>
@@ -198,7 +189,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-8">
             <Link href={lp("/doctors")} className="inline-flex items-center gap-1.5 text-[#0f766e] font-semibold text-sm hover:underline">
-              View all doctors <ChevronRight className="w-4 h-4" />
+              {t("viewAllDoctors")} <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -210,9 +201,9 @@ export default function HomePage() {
           <h2 className="reveal text-2xl sm:text-3xl font-bold text-stone-800 text-center mb-8 sm:mb-12">{t("testimonialsTitle")}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((item, i) => (
-              <div key={item.name} className={`reveal reveal-d${i + 1} bg-[#f0fdfa] rounded-2xl p-6 border border-teal-100 hover:shadow-md transition-shadow duration-300`}>
+              <div key={item.key} className={`reveal reveal-d${i + 1} bg-[#f0fdfa] rounded-2xl p-6 border border-teal-100 hover:shadow-md transition-shadow duration-300`}>
                 <Quote className="w-8 h-8 text-[#14b8a6] mb-3 opacity-60" />
-                <p className="text-stone-600 text-sm leading-relaxed mb-4">{item.text}</p>
+                <p className="text-stone-600 text-sm leading-relaxed mb-4">{t(`testimonials.${item.key}.text`)}</p>
                 <div className="flex justify-end">
                   <div className="flex gap-0.5">
                     {Array.from({ length: item.rating }).map((_, i) => (
@@ -230,37 +221,39 @@ export default function HomePage() {
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-stone-800">Accepted Insurance &amp; Schemes</h2>
-            <p className="text-stone-500 mt-2 text-sm sm:text-base">We're empaneled with major insurance companies and TPAs for cashless treatment</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-stone-800">{t("insuranceTitle")}</h2>
+            <p className="text-stone-500 mt-2 text-sm sm:text-base">{t("insuranceSubtitle")}</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {[
-              { name: "Digit Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Manipal CIGNA", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "HDFC ERGO General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "ICICI Lombard Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Star Health Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Care Health Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Bajaj General Insurance Ltd", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Aditya Birla Health Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "SBI General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "ACKO General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Liberty General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "NAVI General Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "IFFCO Tokio Insurance", badge: "Insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Mediassist TPA", badge: "TPA", color: "bg-purple-50 border-purple-200 text-purple-700" },
-              { name: "Link Insurance TPA", badge: "TPA", color: "bg-purple-50 border-purple-200 text-purple-700" },
-              { name: "Health Insurance TPA", badge: "TPA", color: "bg-purple-50 border-purple-200 text-purple-700" },
+              { name: "Digit Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Manipal CIGNA", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "HDFC ERGO General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "ICICI Lombard Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Star Health Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Care Health Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Bajaj General Insurance Ltd", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Aditya Birla Health Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "SBI General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "ACKO General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Liberty General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "NAVI General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "IFFCO Tokio Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
+              { name: "Mediassist TPA", badge: "tpa", color: "bg-purple-50 border-purple-200 text-purple-700" },
+              { name: "Link Insurance TPA", badge: "tpa", color: "bg-purple-50 border-purple-200 text-purple-700" },
+              { name: "Health Insurance TPA", badge: "tpa", color: "bg-purple-50 border-purple-200 text-purple-700" },
             ].map((item) => (
               <div key={item.name} className={`reveal border rounded-md px-4 py-3 flex flex-col gap-1 ${item.color}`}>
                 <p className="font-semibold text-sm leading-snug text-stone-800">{item.name}</p>
-                <span className="text-[10px] font-bold uppercase tracking-wide opacity-70">{item.badge}</span>
+                <span className="text-[10px] font-bold uppercase tracking-wide opacity-70">
+                  {item.badge === "tpa" ? t("badgeTPA") : t("badgeInsurance")}
+                </span>
               </div>
             ))}
           </div>
           <div className="text-center mt-6">
             <Link href={lp("/empanelments")} className="inline-flex items-center gap-1.5 text-[#0f766e] font-semibold text-sm hover:underline">
-              View all 24+ empanelments <ChevronRight className="w-4 h-4" />
+              {t("viewAllEmpanelments", { count: 24 })} <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

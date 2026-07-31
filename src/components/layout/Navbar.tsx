@@ -110,7 +110,7 @@ export default function Navbar() {
           <button
             onClick={() => setMenuOpen((v) => !v)}
             className="lg:hidden p-3 rounded-lg text-stone-600 hover:bg-stone-100"
-            aria-label="Toggle menu"
+            aria-label={t("toggleMenu")}
           >
             {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>

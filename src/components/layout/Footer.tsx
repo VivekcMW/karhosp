@@ -34,7 +34,7 @@ export default function Footer() {
                 href="https://www.instagram.com/karwareyehospital"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Karwar Eye Hospital on Instagram"
+                aria-label={t("instagramAria")}
                 className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
               >
                 <svg

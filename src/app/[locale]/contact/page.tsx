@@ -76,7 +76,7 @@ export default function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Karwar Eye Hospital Location"
+              title={t("mapTitle")}
             />
           </div>
         </div>

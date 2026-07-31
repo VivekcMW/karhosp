@@ -8,7 +8,8 @@
     "contact": "Contact",
     "gallery": "Gallery",
     "empanelments": "Empanelments",
-    "switchLang": "ಕನ್ನಡ"
+    "switchLang": "ಕನ್ನಡ",
+    "toggleMenu": "Toggle menu"
   },
   "home": {
     "heroTitle": "Caring for Your Vision,",
@@ -16,6 +17,9 @@
     "heroSubtitle": "Karwar Eye Hospital brings world-class eye care to the heart of coastal Karnataka. Expert doctors, modern equipment, and compassionate service.",
     "heroCta": "Book an Appointment",
     "heroCtaSecondary": "Our Services",
+    "badge": "Karwar's Trusted Eye Care Centre",
+    "callForAppointment": "Call for Appointment",
+    "walkinBanner": "Walk-ins Welcome — No Appointment Necessary! Just come in during working hours.",
     "stats": {
       "years": "Years of Service",
       "patients": "Patients Treated",
@@ -24,13 +28,98 @@
     },
     "servicesTitle": "Our Eye Care Services",
     "servicesSubtitle": "Comprehensive eye care under one roof — from routine checkups to complex surgeries",
+    "bookBannerTitle": "Ready to book your eye check-up?",
+    "bookBannerSubtitle": "Our specialists are available Mon – Sat, 9 AM – 6 PM",
+    "callLabel": "Call: {phone}",
+    "bookOnline": "Book Online",
     "doctorsTitle": "Meet Our Specialists",
     "doctorsSubtitle": "Experienced ophthalmologists dedicated to your eye health",
+    "viewAllDoctors": "View all doctors",
     "testimonialsTitle": "What Our Patients Say",
+    "testimonials": {
+      "t1": {
+        "name": "Priya Desai",
+        "text": "After my cataract surgery here, I can see clearly for the first time in years. The staff were so caring and professional."
+      },
+      "t2": {
+        "name": "Mohan Shenoy",
+        "text": "Dr. Hegde diagnosed my retina problem early. Excellent care and very affordable. I highly recommend this hospital."
+      },
+      "t3": {
+        "name": "Leela Naik",
+        "text": "My daughter's squint was corrected here. The pediatric team was wonderful with her. Very happy with the results."
+      }
+    },
+    "insuranceTitle": "Accepted Insurance & Schemes",
+    "insuranceSubtitle": "We're empaneled with major insurance companies and TPAs for cashless treatment",
+    "badgeInsurance": "Insurance",
+    "badgeTPA": "TPA",
+    "viewAllEmpanelments": "View all {count}+ empanelments",
     "ctaBannerTitle": "Ready to Restore Your Vision?",
     "ctaBannerSubtitle": "Book a consultation today — walk-ins welcome",
     "ctaBannerBtn": "Book Appointment",
     "ctaBannerCall": "Call Us"
+  },
+  "doctorsData": {
+    "d1": {
+      "spec": "Cataract & Squint Specialist",
+      "qual": "MBBS, MS, FIGO — Sankara Eye Hospital",
+      "consults": "All Days"
+    },
+    "d2": {
+      "spec": "Cataract & Medical Retina Specialist",
+      "qual": "MBBS, MS, DNB, Fellowship in Medical Retina — Aravind Eye Hospitals",
+      "consults": "All Days"
+    },
+    "d3": {
+      "spec": "Cataract & Glaucoma Surgeon",
+      "qual": "MBBS, D.O, DNB, FPRS",
+      "consults": "All Days"
+    }
+  },
+  "doctorCard": {
+    "viewProfile": "View Profile",
+    "book": "Book",
+    "yrsExp": "yrs exp",
+    "viewProfileOf": "View profile of {name}",
+    "profileOf": "Profile of {name}",
+    "close": "Close",
+    "degree": "Degree",
+    "available": "Available",
+    "bookAppointment": "Book Appointment"
+  },
+  "hospitalStatus": {
+    "days": {
+      "sun": "Sunday",
+      "mon": "Monday",
+      "tue": "Tuesday",
+      "wed": "Wednesday",
+      "thu": "Thursday",
+      "fri": "Friday",
+      "sat": "Saturday"
+    },
+    "times": {
+      "open1": "9:30 AM",
+      "close1": "1:00 PM",
+      "open2": "4:30 PM",
+      "close2": "7:00 PM"
+    },
+    "anyMoment": "any moment",
+    "minUnit": "{value} min",
+    "hrUnit": "{value} hr",
+    "hrMinUnit": "{h} hr {m} min",
+    "openNowCloses": "Open Now · Closes {time}",
+    "closedOpensIn": "Closed · Opens in {countdown}",
+    "closedOpensAt": "Closed · Opens at {time}",
+    "closedTodayOpensMonday": "Closed Today · Opens Monday, {time} (in {countdown})",
+    "closedForDayOpensMonday": "Closed for the Day · Opens Monday, {time} (in {countdown})",
+    "closedForDayOpensNextDay": "Closed for the Day · Opens {day}, {time} (in {countdown})"
+  },
+  "themeToggle": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode"
   },
   "services": {
     "pageTitle": "Our Services",
@@ -76,7 +165,9 @@
     "pageTitle": "Our Doctors",
     "pageSubtitle": "Qualified, experienced, and compassionate eye specialists",
     "consults": "Consultation Days",
-    "exp": "years experience"
+    "exp": "years experience",
+    "consultCta": "Want to consult one of our specialists?",
+    "bookAppointment": "Book an Appointment"
   },
   "about": {
     "pageTitle": "About Karwar Eye Hospital",
@@ -104,7 +195,16 @@
     "concern": "Eye Concern / Symptoms",
     "submit": "Book Appointment",
     "success": "Thank you! We will call you back to confirm your appointment.",
-    "note": "Walk-ins are also welcome during working hours."
+    "note": "Walk-ins are also welcome during working hours.",
+    "whatsappMessage": "Hello Karwar Eye Hospital! 👋\nI would like to book an appointment. Please let me know the available slots.\n\nThank you!",
+    "bookWhatsapp": "Book via WhatsApp",
+    "tapWhatsapp": "Tap to open a pre-filled message",
+    "callDirectly": "Call Us Directly",
+    "details": "Details",
+    "workingHours": "Working Hours",
+    "location": "Location",
+    "addressLine1": "Karwar Eye Hospital, Karwar,",
+    "addressLine2": "Uttara Kannada District, Karnataka – 581301"
   },
   "contact": {
     "pageTitle": "Contact Us",
@@ -120,7 +220,8 @@
     "formName": "Your Name",
     "formEmail": "Your Email",
     "formMessage": "Message",
-    "formSend": "Send Message"
+    "formSend": "Send Message",
+    "mapTitle": "Karwar Eye Hospital Location"
   },
   "gallery": {
     "pageTitle": "Our Gallery",
@@ -131,7 +232,29 @@
     "cat_team": "Our Team",
     "cat_camps": "Eye Camps",
     "noImages": "No images in this category.",
-    "photos": "photos"
+    "photos": "photos",
+    "items": {
+      "waitingArea": "Patient waiting area",
+      "receptionStaff": "Reception and staff",
+      "operationTheatre": "Operation theatre",
+      "laserEquipment": "Appa YAG Laser – Model 307",
+      "slitLamp": "Slit lamp with tonometer",
+      "octScan": "Artelus OCT scan in progress",
+      "artelusOct": "Artelus OCT machine",
+      "chiefOphthalmologist": "Chief Ophthalmologist",
+      "seniorEyeSpecialist": "Senior Eye Specialist",
+      "consultantOphthalmologist": "Consultant Ophthalmologist",
+      "doctorAtDesk": "Doctor at consultation desk",
+      "hospitalTeam": "Hospital team",
+      "doctorConsultation1": "Doctor examining patient with slit lamp",
+      "doctorConsultation2": "Patient consultation session",
+      "retinaExamination": "Retina examination with indirect ophthalmoscope",
+      "bpCheck": "Pre-operative blood pressure check"
+    },
+    "closeLightbox": "Close lightbox",
+    "close": "Close",
+    "previousImage": "Previous image",
+    "nextImage": "Next image"
   },
   "footer": {
     "tagline": "Trusted Care. Trusted Sight. — Serving Karwar Since 2012.",
@@ -140,7 +263,65 @@
     "legal": "Legal",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
-    "rights": "© {year} Karwar Eye Hospital. All rights reserved."
+    "rights": "© {year} Karwar Eye Hospital. All rights reserved.",
+    "instagramAria": "Karwar Eye Hospital on Instagram"
+  },
+  "empanelments": {
+    "badge": "Trusted Coverage",
+    "heroTitle1": "Your Treatment,",
+    "heroTitle2": "Fully Covered",
+    "heroSubtitle": "Karwar Eye Hospital is empaneled with major insurance companies and TPAs — so you can focus on getting better, not on billing.",
+    "statEmpanelments": "Empanelments",
+    "statCashlessSupport": "Cashless Support",
+    "statAvailable": "Available",
+    "statCashlessValue": "Cashless",
+    "howItWorks": "How to avail cashless treatment",
+    "steps": {
+      "s1": {
+        "title": "Show Your Card",
+        "desc": "Present your health card, insurance card or government ID at our registration counter."
+      },
+      "s2": {
+        "title": "We Handle Paperwork",
+        "desc": "Our billing team verifies your coverage and prepares cashless authorisation or reimbursement forms."
+      },
+      "s3": {
+        "title": "Get Treated",
+        "desc": "Receive world-class eye care with zero upfront payment or easy reimbursement after treatment."
+      }
+    },
+    "typePrivate": "Private",
+    "typePublic": "Public",
+    "typeTPA": "TPA",
+    "ctaTitle": "Don't see your insurer listed?",
+    "ctaSubtitle": "New empanelments are added regularly. Contact us to check your eligibility.",
+    "ctaButton": "Contact Us",
+    "items": {
+      "digit": { "desc": "Cashless & reimbursement health insurance across Digit policy variants." },
+      "manipalCigna": { "desc": "Complete health solutions under the Manipal CIGNA network." },
+      "hdfcErgo": { "desc": "Comprehensive health plans including Optima and Energy series." },
+      "iffcoTokio": { "desc": "Health insurance coverage under IFFCO Tokio general insurance plans." },
+      "iciciLombard": { "desc": "Cashless treatment for ICICI Lombard health insurance policyholders." },
+      "acko": { "desc": "Paperless and cashless claims for ACKO health insurance customers." },
+      "starHealth": { "desc": "Cashless claims across all Star Health policy variants." },
+      "relianceGeneral": { "desc": "Health insurance plans under Reliance General Insurance." },
+      "bajaj": { "desc": "Health Guard, Critical Illness and group health plans." },
+      "care": { "desc": "Care, Care Freedom and Care Classic policyholders." },
+      "adityaBirla": { "desc": "Activ Health and comprehensive health plans from Aditya Birla." },
+      "liberty": { "desc": "Health insurance coverage under Liberty General Insurance plans." },
+      "navi": { "desc": "Health insurance plans with cashless facility for NAVI customers." },
+      "galaxy": { "desc": "Health insurance coverage under Galaxy Health Insurance plans." },
+      "generali": { "desc": "Cashless healthcare services for Generali policyholders." },
+      "sbi": { "desc": "Comprehensive health insurance plans from SBI General Insurance." },
+      "universalSompo": { "desc": "Health insurance coverage under Universal Sompo plans." },
+      "cholaMs": { "desc": "Health insurance coverage for Chola MS policyholders." },
+      "healthInsuranceTpa": { "desc": "Third-party claim processing for multiple health insurance policies." },
+      "linkTpa": { "desc": "TPA services for cashless authorisation and claim settlement." },
+      "heritageTpa": { "desc": "Cashless and reimbursement claim management." },
+      "mdIndiaTpa": { "desc": "End-to-end TPA services for cashless hospitalisation." },
+      "healthAssistTpa": { "desc": "TPA services for cashless and reimbursement claim processing." },
+      "mediassist": { "desc": "One of India's leading TPAs — processes claims for multiple insurers." }
+    }
   },
   "privacy": {
     "pageTitle": "Privacy Policy",

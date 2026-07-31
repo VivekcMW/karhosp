@@ -10,7 +10,7 @@ type Category = (typeof CATEGORIES)[number];
 interface GalleryItem {
   id: number;
   src: string;
-  alt: string;
+  captionKey: string;
   category: Exclude<Category, "all">;
 }
 
@@ -19,100 +19,100 @@ const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 1,
     src: "/gallery/waiting-area.jpg",
-    alt: "Patient waiting area",
+    captionKey: "waitingArea",
     category: "facility",
   },
   {
     id: 2,
     src: "/gallery/reception-staff.jpg",
-    alt: "Reception and staff",
+    captionKey: "receptionStaff",
     category: "facility",
   },
   {
     id: 3,
     src: "/gallery/operation-theatre-1.jpg",
-    alt: "Operation theatre",
+    captionKey: "operationTheatre",
     category: "facility",
   },
   // Equipment
   {
     id: 4,
     src: "/gallery/laser-equipment.jpg",
-    alt: "Appa YAG Laser – Model 307",
+    captionKey: "laserEquipment",
     category: "equipment",
   },
   {
     id: 5,
     src: "/gallery/slit-lamp-2.jpg",
-    alt: "Slit lamp with tonometer",
+    captionKey: "slitLamp",
     category: "equipment",
   },
   {
     id: 6,
     src: "/gallery/oct-scan.jpg",
-    alt: "Artelus OCT scan in progress",
+    captionKey: "octScan",
     category: "equipment",
   },
   {
     id: 7,
     src: "/gallery/artelus-oct.jpg",
-    alt: "Artelus OCT machine",
+    captionKey: "artelusOct",
     category: "equipment",
   },
   // Team
   {
     id: 8,
     src: "/gallery/doctor-portrait-1.jpg",
-    alt: "Chief Ophthalmologist",
+    captionKey: "chiefOphthalmologist",
     category: "team",
   },
   {
     id: 9,
     src: "/gallery/doctor-portrait-2.jpg",
-    alt: "Senior Eye Specialist",
+    captionKey: "seniorEyeSpecialist",
     category: "team",
   },
   {
     id: 10,
     src: "/gallery/doctor-portrait-3.jpg",
-    alt: "Consultant Ophthalmologist",
+    captionKey: "consultantOphthalmologist",
     category: "team",
   },
   {
     id: 11,
     src: "/gallery/doctor-at-desk.jpg",
-    alt: "Doctor at consultation desk",
+    captionKey: "doctorAtDesk",
     category: "team",
   },
   {
     id: 12,
     src: "/gallery/team-1.jpg",
-    alt: "Hospital team",
+    captionKey: "hospitalTeam",
     category: "team",
   },
   // Eye Camps / Consultations
   {
     id: 13,
     src: "/gallery/doctor-consultation-1.jpg",
-    alt: "Doctor examining patient with slit lamp",
+    captionKey: "doctorConsultation1",
     category: "camps",
   },
   {
     id: 14,
     src: "/gallery/doctor-consultation-2.jpg",
-    alt: "Patient consultation session",
+    captionKey: "doctorConsultation2",
     category: "camps",
   },
   {
     id: 15,
     src: "/gallery/retina-examination.jpg",
-    alt: "Retina examination with indirect ophthalmoscope",
+    captionKey: "retinaExamination",
     category: "camps",
   },
   {
     id: 16,
     src: "/gallery/bp-check.jpg",
-    alt: "Pre-operative blood pressure check",
+    captionKey: "bpCheck",
     category: "camps",
   },
 ];
@@ -167,6 +167,7 @@ export default function GalleryPage() {
       : GALLERY_ITEMS.filter((item) => item.category === activeCategory);
 
   const isAll = activeCategory === "all";
+  const caption = (item: GalleryItem) => t(`items.${item.captionKey}`);
 
   const openLightbox = (idx: number) => setLightboxIndex(idx);
   const closeLightbox = () => setLightboxIndex(null);
@@ -272,26 +273,26 @@ export default function GalleryPage() {
                   key={item.id}
                   type="button"
                   onClick={() => openLightbox(idx)}
-                  aria-label={item.alt}
+                  aria-label={caption(item)}
                   className={`${bentoClass} group relative overflow-hidden rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0f766e]`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={item.src}
-                    alt={item.alt}
+                    alt={caption(item)}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
                   {/* Bottom gradient + caption */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
                     <p className="text-white text-xs sm:text-sm font-medium leading-snug">
-                      {item.alt}
+                      {caption(item)}
                     </p>
                   </div>
                   {/* Category pill — visible on "all" hover */}
                   {isAll && (
                     <span className="absolute top-2.5 left-2.5 bg-black/50 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded capitalize opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {item.category}
+                      {t(`cat_${item.category}`)}
                     </span>
                   )}
                 </button>
@@ -306,13 +307,13 @@ export default function GalleryPage() {
                 key={item.id}
                 type="button"
                 onClick={() => openLightbox(idx)}
-                aria-label={item.alt}
+                aria-label={caption(item)}
                 className="group relative overflow-hidden rounded-md"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={item.src}
-                  alt={item.alt}
+                  alt={caption(item)}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -332,7 +333,7 @@ export default function GalleryPage() {
             type="button"
             className="absolute inset-0 w-full h-full cursor-default"
             onClick={closeLightbox}
-            aria-label="Close lightbox"
+            aria-label={t("closeLightbox")}
             tabIndex={-1}
           />
 
@@ -341,7 +342,7 @@ export default function GalleryPage() {
             type="button"
             className="absolute top-[max(1rem,env(safe-area-inset-top))] right-4 z-10 text-white/80 hover:text-white p-3 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
             onClick={closeLightbox}
-            aria-label="Close"
+            aria-label={t("close")}
           >
             <X className="w-5 h-5" />
           </button>
@@ -351,7 +352,7 @@ export default function GalleryPage() {
             type="button"
             className="absolute left-2 sm:left-5 z-10 text-white/80 hover:text-white p-2.5 sm:p-3 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
             onClick={prev}
-            aria-label="Previous image"
+            aria-label={t("previousImage")}
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
@@ -361,11 +362,11 @@ export default function GalleryPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={filtered[lightboxIndex].src.replace("w=800", "w=1400")}
-              alt={filtered[lightboxIndex].alt}
+              alt={caption(filtered[lightboxIndex])}
               className="max-h-[55vh] sm:max-h-[62vh] w-auto mx-auto rounded-md object-contain shadow-2xl"
             />
             <p className="text-white/75 text-xs sm:text-sm text-center mt-3 leading-snug px-4">
-              {filtered[lightboxIndex].alt}
+              {caption(filtered[lightboxIndex])}
             </p>
             <p className="text-white/35 text-xs text-center mt-1 tabular-nums">
               {lightboxIndex + 1} / {filtered.length}
@@ -377,7 +378,7 @@ export default function GalleryPage() {
             type="button"
             className="absolute right-2 sm:right-5 z-10 text-white/80 hover:text-white p-2.5 sm:p-3 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
             onClick={next}
-            aria-label="Next image"
+            aria-label={t("nextImage")}
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -396,7 +397,7 @@ export default function GalleryPage() {
                     ref={isActive ? activeThumbRef : null}
                     type="button"
                     onClick={(e) => { e.stopPropagation(); setLightboxIndex(idx); }}
-                    aria-label={item.alt}
+                    aria-label={caption(item)}
                     className={`shrink-0 rounded overflow-hidden transition-all duration-200 ${
                       isActive
                         ? "ring-2 ring-white scale-110 opacity-100"
@@ -407,7 +408,7 @@ export default function GalleryPage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={item.src}
-                      alt={item.alt}
+                      alt={caption(item)}
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />

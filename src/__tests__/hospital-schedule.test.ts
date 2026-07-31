@@ -1,25 +1,25 @@
 import { describe, it, expect } from "vitest";
-import { computeStatus, fmtCountdown, SESSIONS } from "@/lib/hospital-schedule";
+import { computeStatus, computeCountdown } from "@/lib/hospital-schedule";
 
-describe("fmtCountdown", () => {
-  it('returns "any moment" for 0-1 minutes', () => {
-    expect(fmtCountdown(0)).toBe("any moment");
-    expect(fmtCountdown(1)).toBe("any moment");
+describe("computeCountdown", () => {
+  it('returns "moment" unit for 0-1 minutes', () => {
+    expect(computeCountdown(0)).toEqual({ unit: "moment" });
+    expect(computeCountdown(1)).toEqual({ unit: "moment" });
   });
 
   it("returns minutes for < 60", () => {
-    expect(fmtCountdown(30)).toBe("30 min");
-    expect(fmtCountdown(59)).toBe("59 min");
+    expect(computeCountdown(30)).toEqual({ unit: "min", value: 30 });
+    expect(computeCountdown(59)).toEqual({ unit: "min", value: 59 });
   });
 
   it("returns hours for exact hour", () => {
-    expect(fmtCountdown(60)).toBe("1 hr");
-    expect(fmtCountdown(180)).toBe("3 hr");
+    expect(computeCountdown(60)).toEqual({ unit: "hr", value: 1 });
+    expect(computeCountdown(180)).toEqual({ unit: "hr", value: 3 });
   });
 
   it("returns hours and minutes for mixed", () => {
-    expect(fmtCountdown(90)).toBe("1 hr 30 min");
-    expect(fmtCountdown(150)).toBe("2 hr 30 min");
+    expect(computeCountdown(90)).toEqual({ unit: "hrMin", h: 1, m: 30 });
+    expect(computeCountdown(150)).toEqual({ unit: "hrMin", h: 2, m: 30 });
   });
 });
 
@@ -28,14 +28,14 @@ describe("computeStatus — open hours", () => {
     const result = computeStatus(1, 9 * 60 + 30); // Monday 9:30 AM
     expect(result.isOpen).toBe(true);
     expect(result.urgency).toBe("open");
-    expect(result.detail).toContain("Open Now");
+    expect(result.detail.kind).toBe("openNowCloses");
   });
 
   it("is open during afternoon session", () => {
     const result = computeStatus(2, 17 * 60); // Tuesday 5:00 PM
     expect(result.isOpen).toBe(true);
     expect(result.urgency).toBe("open");
-    expect(result.detail).toContain("Open Now");
+    expect(result.detail.kind).toBe("openNowCloses");
   });
 
   it("is open at 6:59 PM", () => {
@@ -58,26 +58,26 @@ describe("computeStatus — closed periods", () => {
   it("is closed before morning session", () => {
     const result = computeStatus(1, 6 * 60); // Monday 6:00 AM
     expect(result.isOpen).toBe(false);
-    expect(result.detail).toContain("Opens at 9:30 AM");
+    expect(result.detail).toEqual({ kind: "closedOpensAt", timeKey: "open1" });
   });
 
   it("shows 'soon' urgency within 1 hour of opening", () => {
     const result = computeStatus(1, 9 * 60); // Monday 9:00 AM (30 min before)
     expect(result.isOpen).toBe(false);
     expect(result.urgency).toBe("soon");
-    expect(result.detail).toContain("Opens in");
+    expect(result.detail.kind).toBe("closedOpensIn");
   });
 
   it("is closed between sessions", () => {
     const result = computeStatus(2, 14 * 60); // Tuesday 2:00 PM
     expect(result.isOpen).toBe(false);
-    expect(result.detail).toContain("Opens at 4:30 PM");
+    expect(result.detail).toEqual({ kind: "closedOpensAt", timeKey: "open2" });
   });
 
   it("is closed after evening session on Saturday", () => {
     const result = computeStatus(6, 21 * 60); // Saturday 9:00 PM
     expect(result.isOpen).toBe(false);
-    expect(result.detail).toContain("Opens Monday");
+    expect(result.detail.kind).toBe("closedForDayOpensMonday");
   });
 });
 
@@ -86,12 +86,12 @@ describe("computeStatus — Sunday", () => {
     const result = computeStatus(0, 10 * 60); // Sunday 10:00 AM
     expect(result.isOpen).toBe(false);
     expect(result.urgency).toBe("closed");
-    expect(result.detail).toContain("Closed Today");
+    expect(result.detail.kind).toBe("closedTodayOpensMonday");
   });
 
   it("on Sunday mentions Monday opening", () => {
     const result = computeStatus(0, 12 * 60);
-    expect(result.detail).toContain("Opens Monday");
+    expect(result.detail.kind).toBe("closedTodayOpensMonday");
   });
 });
 
@@ -99,13 +99,13 @@ describe("computeStatus — day boundaries", () => {
   it("handles the first minute of Monday", () => {
     const result = computeStatus(1, 0);
     expect(result.isOpen).toBe(false);
-    expect(result.dayName).toBe("Monday");
+    expect(result.day).toBe("mon");
   });
 
   it("handles the last minute of Saturday", () => {
     const result = computeStatus(6, 23 * 60 + 59);
     expect(result.isOpen).toBe(false);
-    expect(result.dayName).toBe("Saturday");
+    expect(result.day).toBe("sat");
   });
 });
 
@@ -124,7 +124,7 @@ describe("computeStatus — session boundary edge cases", () => {
     const result = computeStatus(1, 16 * 60 + 29);
     expect(result.isOpen).toBe(false);
     expect(result.urgency).toBe("soon");
-    expect(result.detail).toContain("Opens in");
+    expect(result.detail.kind).toBe("closedOpensIn");
   });
 
   it("is open at 4:30 PM sharp", () => {

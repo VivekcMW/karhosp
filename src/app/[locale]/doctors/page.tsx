@@ -2,38 +2,20 @@ import { useTranslations, useLocale } from "next-intl";
 import { Calendar, Users } from "lucide-react";
 import Link from "next/link";
 import DoctorCard from "@/components/DoctorCard";
-
-const doctorData = [
-  {
-    name: "Dr. Sharad Anil Kolvekar",
-    spec: "Cataract & Squint Specialist",
-    qual: "MBBS, MS, FIGO — Sankara Eye Hospital",
-    exp: 15,
-    consults: "All Days",
-    photo: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=500&q=80",
-  },
-  {
-    name: "Dr. Siddhi Pandit",
-    spec: "Cataract & Medical Retina Specialist",
-    qual: "MBBS, MS, DNB, Fellowship in Medical Retina — Aravind Eye Hospitals",
-    exp: 10,
-    consults: "All Days",
-    photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=500&q=80",
-  },
-  {
-    name: "Dr. Ravindra Bhat",
-    spec: "Cataract & Glaucoma Surgeon",
-    qual: "MBBS, D.O, DNB, FPRS",
-    exp: 12,
-    consults: "All Days",
-    photo: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&h=500&q=80",
-  },
-];
+import { DOCTORS } from "@/lib/doctors-data";
 
 export default function DoctorsPage() {
   const t = useTranslations("doctors");
+  const td = useTranslations("doctorsData");
   const locale = useLocale();
   const lp = (href: string) => `/${locale}${href}`;
+
+  const doctorData = DOCTORS.map((d) => ({
+    ...d,
+    spec: td(`${d.id}.spec`),
+    qual: td(`${d.id}.qual`),
+    consults: td(`${d.id}.consults`),
+  }));
 
   return (
     <div>
@@ -61,13 +43,13 @@ export default function DoctorsPage() {
 
         {/* Book CTA */}
         <div className="text-center mt-12">
-          <p className="text-stone-500 text-sm mb-4">Want to consult one of our specialists?</p>
+          <p className="text-stone-500 text-sm mb-4">{t("consultCta")}</p>
           <Link
             href={lp("/appointments")}
             className="inline-flex items-center gap-2 bg-[#0f766e] hover:bg-[#0d6b63] text-white font-semibold px-8 py-3 rounded-xl transition-colors shadow-md"
           >
             <Calendar className="w-4 h-4" />
-            Book an Appointment
+            {t("bookAppointment")}
           </Link>
         </div>
       </section>

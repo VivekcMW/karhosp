@@ -1,29 +1,43 @@
 export const SESSIONS = [
-  { start: 9 * 60 + 30, end: 13 * 60, closesLabel: "1:00 PM" },
-  { start: 16 * 60 + 30, end: 19 * 60, closesLabel: "7:00 PM" },
-];
+  { start: 9 * 60 + 30, end: 13 * 60, opensKey: "open1", closesKey: "close1" },
+  { start: 16 * 60 + 30, end: 19 * 60, opensKey: "open2", closesKey: "close2" },
+] as const;
 
-export const DAY_NAMES = [
-  "Sunday", "Monday", "Tuesday", "Wednesday",
-  "Thursday", "Friday", "Saturday",
-];
+export const DAY_KEYS = [
+  "sun", "mon", "tue", "wed", "thu", "fri", "sat",
+] as const;
 
+export type DayKey = (typeof DAY_KEYS)[number];
 export type Urgency = "open" | "soon" | "closed";
+
+export type Countdown =
+  | { unit: "moment" }
+  | { unit: "min"; value: number }
+  | { unit: "hr"; value: number }
+  | { unit: "hrMin"; h: number; m: number };
+
+export function computeCountdown(mins: number): Countdown {
+  if (mins <= 1) return { unit: "moment" };
+  if (mins < 60) return { unit: "min", value: mins };
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return m === 0 ? { unit: "hr", value: h } : { unit: "hrMin", h, m };
+}
+
+export type StatusDetail =
+  | { kind: "openNowCloses"; timeKey: string }
+  | { kind: "closedOpensIn"; countdown: Countdown }
+  | { kind: "closedOpensAt"; timeKey: string }
+  | { kind: "closedTodayOpensMonday"; timeKey: string; countdown: Countdown }
+  | { kind: "closedForDayOpensMonday"; timeKey: string; countdown: Countdown }
+  | { kind: "closedForDayOpensNextDay"; nextDay: DayKey; timeKey: string; countdown: Countdown };
 
 export type Status = {
   isOpen: boolean;
-  dayName: string;
-  detail: string;
+  day: DayKey;
   urgency: Urgency;
+  detail: StatusDetail;
 };
-
-export function fmtCountdown(mins: number): string {
-  if (mins <= 1) return "any moment";
-  if (mins < 60) return `${mins} min`;
-  const h = Math.floor(mins / 60);
-  const m = mins % 60;
-  return m === 0 ? `${h} hr` : `${h} hr ${m} min`;
-}
 
 export function getISTTime(): { day: number; minuteOfDay: number } {
   const now = new Date();
@@ -36,31 +50,26 @@ export function getISTTime(): { day: number; minuteOfDay: number } {
   };
 }
 
-function checkSoon(minsUntil: number, openAt: string): string {
-  return minsUntil <= 60
-    ? `Closed · Opens in ${fmtCountdown(minsUntil)}`
-    : `Closed · Opens at ${openAt}`;
-}
-
-function closedResult(day: number, detail: string, soon: boolean): Status {
+function checkSoon(minsUntil: number, timeKey: string): { detail: StatusDetail; soon: boolean } {
+  const soon = minsUntil <= 60;
   return {
-    isOpen: false,
-    dayName: DAY_NAMES[day],
-    detail,
-    urgency: soon ? "soon" : "closed",
+    soon,
+    detail: soon
+      ? { kind: "closedOpensIn", countdown: computeCountdown(minsUntil) }
+      : { kind: "closedOpensAt", timeKey },
   };
 }
 
 export function computeStatus(day: number, minuteOfDay: number): Status {
-  const dayName = DAY_NAMES[day];
+  const dayKey = DAY_KEYS[day];
 
   if (day === 0) {
     const minsUntil = 24 * 60 - minuteOfDay + SESSIONS[0].start;
     return {
       isOpen: false,
-      dayName,
+      day: dayKey,
       urgency: "closed",
-      detail: `Closed Today · Opens Monday, 9:30 AM (in ${fmtCountdown(minsUntil)})`,
+      detail: { kind: "closedTodayOpensMonday", timeKey: "open1", countdown: computeCountdown(minsUntil) },
     };
   }
 
@@ -68,21 +77,23 @@ export function computeStatus(day: number, minuteOfDay: number): Status {
     if (minuteOfDay >= session.start && minuteOfDay < session.end) {
       return {
         isOpen: true,
-        dayName,
+        day: dayKey,
         urgency: "open",
-        detail: `Open Now · Closes ${session.closesLabel}`,
+        detail: { kind: "openNowCloses", timeKey: session.closesKey },
       };
     }
   }
 
   if (minuteOfDay < SESSIONS[0].start) {
     const minsUntil = SESSIONS[0].start - minuteOfDay;
-    return closedResult(day, checkSoon(minsUntil, "9:30 AM"), minsUntil <= 60);
+    const { detail, soon } = checkSoon(minsUntil, "open1");
+    return { isOpen: false, day: dayKey, urgency: soon ? "soon" : "closed", detail };
   }
 
   if (minuteOfDay < SESSIONS[1].start) {
     const minsUntil = SESSIONS[1].start - minuteOfDay;
-    return closedResult(day, checkSoon(minsUntil, "4:30 PM"), minsUntil <= 60);
+    const { detail, soon } = checkSoon(minsUntil, "open2");
+    return { isOpen: false, day: dayKey, urgency: soon ? "soon" : "closed", detail };
   }
 
   const minsUntilMidnight = 24 * 60 - minuteOfDay;
@@ -90,18 +101,18 @@ export function computeStatus(day: number, minuteOfDay: number): Status {
     const minsUntil = minsUntilMidnight + 24 * 60 + SESSIONS[0].start;
     return {
       isOpen: false,
-      dayName,
+      day: dayKey,
       urgency: "closed",
-      detail: `Closed for the Day · Opens Monday, 9:30 AM (in ${fmtCountdown(minsUntil)})`,
+      detail: { kind: "closedForDayOpensMonday", timeKey: "open1", countdown: computeCountdown(minsUntil) },
     };
   }
 
-  const nextDayName = DAY_NAMES[day + 1];
+  const nextDay = DAY_KEYS[day + 1];
   const minsUntil = minsUntilMidnight + SESSIONS[0].start;
   return {
     isOpen: false,
-    dayName,
+    day: dayKey,
     urgency: "closed",
-    detail: `Closed for the Day · Opens ${nextDayName}, 9:30 AM (in ${fmtCountdown(minsUntil)})`,
+    detail: { kind: "closedForDayOpensNextDay", nextDay, timeKey: "open1", countdown: computeCountdown(minsUntil) },
   };
 }
