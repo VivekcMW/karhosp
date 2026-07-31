@@ -33,6 +33,8 @@ export default function StatCounter({
     }
 
     if (typeof IntersectionObserver === "undefined") {
+      // Environment fallback: skip the count-up animation entirely when unsupported.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCount(num);
       return;
     }

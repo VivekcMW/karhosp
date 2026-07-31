@@ -10,6 +10,8 @@ export default function HospitalStatus({ variant = "inline" }: Readonly<{ varian
 
   useEffect(() => {
     const { day, minuteOfDay } = getISTTime();
+    // Live clock: the current status is only knowable client-side and must tick every 30s.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStatus(computeStatus(day, minuteOfDay));
     const id = setInterval(() => {
       const { day: d, minuteOfDay: m } = getISTTime();

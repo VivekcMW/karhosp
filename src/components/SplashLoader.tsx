@@ -14,6 +14,8 @@ export default function SplashLoader() {
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem(SHOWN_KEY)) return;
 
+    // Client-only sessionStorage check: splash must stay hidden until we know this is a fresh session.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setVisible(true);
     const fadeTimer = setTimeout(() => setFading(true), DURATION_MS - 200);
     const hideTimer = setTimeout(() => {

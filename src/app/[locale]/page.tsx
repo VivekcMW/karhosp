@@ -8,6 +8,7 @@ import {
 import StatCounter from "@/components/StatCounter";
 import DoctorCard from "@/components/DoctorCard";
 import { DOCTORS } from "@/lib/doctors-data";
+import { EMPANELMENTS } from "@/lib/empanelments-data";
 
 export default function HomePage() {
   const t = useTranslations("home");
@@ -253,7 +254,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-6">
             <Link href={lp("/empanelments")} className="inline-flex items-center gap-1.5 text-[#0f766e] font-semibold text-sm hover:underline">
-              {t("viewAllEmpanelments", { count: 24 })} <ChevronRight className="w-4 h-4" />
+              {t("viewAllEmpanelments", { count: EMPANELMENTS.length })} <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
