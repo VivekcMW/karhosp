@@ -31,11 +31,11 @@ export default function DoctorCard({
     >
       {/* Photo + info */}
       <div>
-        <div className="mx-3 mt-3 rounded-md bg-[#ccfbf1] overflow-hidden h-56 flex items-end justify-center">
+        <div className="mx-3 mt-3 rounded-md bg-[#ccfbf1] overflow-hidden h-64 relative">
           <img
             src={doc.photo}
             alt={doc.name}
-            className="img-zoom w-full h-[94%] object-cover object-top"
+            className="img-zoom w-full h-full object-cover object-center"
           />
         </div>
         <div className="px-5 pt-4 pb-3 flex flex-col gap-1">
