@@ -97,7 +97,14 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-teal-100">
               <li className="flex gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                <span>{tc("addressValue")}</span>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Karwar+Eye+Hospital+Gurumath+road+Kajubag+Karwar+Karnataka+581301"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  {tc("addressValue")}
+                </a>
               </li>
               <li className="flex gap-2 items-center">
                 <Phone className="w-4 h-4 shrink-0" />

@@ -231,13 +231,16 @@
     "workingHours": "Working Hours",
     "location": "Location",
     "addressLine1": "Karwar Eye Hospital, Gurumath road, Kajubag,",
-    "addressLine2": "Karwar, Karnataka – 581301"
+    "addressLine2": "Karwar, Karnataka – 581301",
+    "getDirections": "Get Directions"
   },
   "contact": {
     "pageTitle": "Contact Us",
     "pageSubtitle": "We're here to help — reach out to us anytime",
     "address": "Address",
     "addressValue": "Karwar Eye Hospital, Gurumath road, Kajubag, Karwar, Karnataka – 581301",
+    "viewOnMap": "View on Google Maps",
+    "getDirections": "Get Directions",
     "phone": "Phone",
     "email": "Email",
     "hours": "Working Hours",

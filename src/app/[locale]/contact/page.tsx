@@ -27,7 +27,16 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="font-semibold text-stone-800 mb-1">{t("address")}</p>
-                <p className="text-stone-500 text-sm">{t("addressValue")}</p>
+                <p className="text-stone-500 text-sm mb-2">{t("addressValue")}</p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Karwar+Eye+Hospital+Gurumath+road+Kajubag+Karwar+Karnataka+581301"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[#0f766e] hover:text-[#0d6b63] text-xs font-medium transition-colors"
+                >
+                  <MapPin className="w-3.5 h-3.5" />
+                  {t("viewOnMap")}
+                </a>
               </div>
             </div>
 
@@ -69,7 +78,7 @@ export default function ContactPage() {
           {/* Map */}
           <div className="mt-8 rounded-2xl overflow-hidden border border-stone-200 h-72 sm:h-96">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.123!2d74.1292!3d14.8013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbe9b4f1f77b1e5%3A0x1234567890abcdef!2sKarwar%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.5678!2d74.1292!3d14.8013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQ4JzA0LjciTiA3NMKwMDcnNDUuMSJF!5e0!3m2!1sen!2sin!4v1234567890"
               width="100%"
               height="100%"
               style={{ border: 0 }}

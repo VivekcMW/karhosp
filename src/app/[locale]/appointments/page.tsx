@@ -75,7 +75,16 @@ export default function AppointmentsPage() {
               <div>
                 <p className="font-medium text-stone-800">{t("location")}</p>
                 <p>{t("addressLine1")}</p>
-                <p>{t("addressLine2")}</p>
+                <p className="mb-2">{t("addressLine2")}</p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Karwar+Eye+Hospital+Gurumath+road+Kajubag+Karwar+Karnataka+581301"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[#0f766e] hover:text-[#0d6b63] text-xs font-medium transition-colors"
+                >
+                  <MapPin className="w-3.5 h-3.5" />
+                  {t("getDirections")}
+                </a>
               </div>
             </div>
           </div>
