@@ -227,22 +227,22 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {[
-              { name: "Digit Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Manipal CIGNA", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "HDFC ERGO General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "ICICI Lombard Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Star Health Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Care Health Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Bajaj General Insurance Ltd", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Aditya Birla Health Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "SBI General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "ACKO General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Liberty General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "NAVI General Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "IFFCO Tokio Insurance", badge: "insurance", color: "bg-rose-50 border-rose-200 text-rose-700" },
-              { name: "Mediassist TPA", badge: "tpa", color: "bg-purple-50 border-purple-200 text-purple-700" },
-              { name: "Link Insurance TPA", badge: "tpa", color: "bg-purple-50 border-purple-200 text-purple-700" },
-              { name: "Health Insurance TPA", badge: "tpa", color: "bg-purple-50 border-purple-200 text-purple-700" },
+              { name: "Digit Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "Manipal CIGNA", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "HDFC ERGO General Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "ICICI Lombard Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "Star Health Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "Care Health Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "Bajaj General Insurance Ltd", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "Aditya Birla Health Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "SBI General Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "ACKO General Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "Liberty General Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "NAVI General Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "IFFCO Tokio Insurance", badge: "insurance", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "Mediassist TPA", badge: "tpa", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "Link Insurance TPA", badge: "tpa", color: "bg-stone-50 border-stone-200 text-stone-700" },
+              { name: "Health Insurance TPA", badge: "tpa", color: "bg-stone-50 border-stone-200 text-stone-700" },
             ].map((item) => (
               <div key={item.name} className={`reveal border rounded-md px-4 py-3 flex flex-col gap-1 ${item.color}`}>
                 <p className="font-semibold text-sm leading-snug text-stone-800">{item.name}</p>

@@ -3,18 +3,15 @@ import Link from "next/link";
 import { ShieldCheck, ChevronRight, BadgeCheck, Phone, FileText } from "lucide-react";
 import { EMPANELMENTS, type EmpanelmentType } from "@/lib/empanelments-data";
 
-const TYPE_STYLES: Record<string, { badge: string; leftBorder: string }> = {
+const TYPE_STYLES: Record<string, { badge: string }> = {
   Private: {
-    badge: "bg-rose-100 text-rose-700",
-    leftBorder: "border-l-rose-400",
+    badge: "bg-stone-100 text-stone-700",
   },
   Public: {
-    badge: "bg-blue-100 text-blue-700",
-    leftBorder: "border-l-blue-400",
+    badge: "bg-stone-100 text-stone-700",
   },
   TPA: {
-    badge: "bg-purple-100 text-purple-700",
-    leftBorder: "border-l-purple-400",
+    badge: "bg-stone-100 text-stone-700",
   },
 };
 
@@ -107,7 +104,7 @@ export default function EmpanelmentsPage() {
               return (
                 <div
                   key={item.name}
-                  className={`bg-white rounded-md shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col overflow-hidden border-l-4 ${styles.leftBorder}`}
+                  className="bg-white rounded-md shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col overflow-hidden border border-stone-200"
                 >
                   <div className="p-4 flex flex-col gap-2 flex-1">
                     <p className="font-semibold text-stone-800 text-sm leading-snug">{item.name}</p>
