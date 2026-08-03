@@ -17,68 +17,75 @@ import { useEffect } from "react";
  */
 export default function RevealObserver() {
   useEffect(() => {
-    document.documentElement.dataset.revealReady = "true";
+    let ioRef: IntersectionObserver | null = null;
+    let moRef: MutationObserver | null = null;
 
-    const reveal = (el: Element) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        el.classList.add("visible");
-        return true;
-      }
-      return false;
-    };
+    // Defer execution to ensure hydration is complete
+    const timeoutId = setTimeout(() => {
+      document.documentElement.dataset.revealReady = "true";
 
-    // Fallback for old WebKit: reveal everything immediately.
-    if (typeof IntersectionObserver === "undefined") {
-      const revealAll = () => {
-        document.querySelectorAll(".reveal, .reveal-scale").forEach((el) => el.classList.add("visible"));
+      const reveal = (el: Element) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("visible");
+          return true;
+        }
+        return false;
       };
-      revealAll();
-      const fallbackMo = new MutationObserver(revealAll);
-      fallbackMo.observe(document.body, { childList: true, subtree: true });
-      return () => fallbackMo.disconnect();
-    }
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
-    );
-
-    const processNewElements = (root: ParentNode) => {
-      const targets = root.querySelectorAll(".reveal, .reveal-scale");
-      targets.forEach((el) => {
-        if (el.classList.contains("visible")) return;
-        if (!reveal(el)) io.observe(el);
-      });
-    };
-
-    processNewElements(document);
-
-    const mo = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        mutation.addedNodes.forEach((node) => {
-          if (!(node instanceof Element)) return;
-          if (node.matches(".reveal, .reveal-scale")) {
-            if (!node.classList.contains("visible")) {
-              if (!reveal(node)) io.observe(node);
-            }
-          }
-          processNewElements(node);
-        });
+      // Fallback for old WebKit: reveal everything immediately.
+      if (typeof IntersectionObserver === "undefined") {
+        const revealAll = () => {
+          document.querySelectorAll(".reveal, .reveal-scale").forEach((el) => el.classList.add("visible"));
+        };
+        revealAll();
+        moRef = new MutationObserver(revealAll);
+        moRef.observe(document.body, { childList: true, subtree: true });
+        return;
       }
-    });
-    mo.observe(document.body, { childList: true, subtree: true });
+
+      ioRef = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              ioRef?.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
+      );
+
+      const processNewElements = (root: ParentNode) => {
+        const targets = root.querySelectorAll(".reveal, .reveal-scale");
+        targets.forEach((el) => {
+          if (el.classList.contains("visible")) return;
+          if (!reveal(el)) ioRef?.observe(el);
+        });
+      };
+
+      processNewElements(document);
+
+      moRef = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          mutation.addedNodes.forEach((node) => {
+            if (!(node instanceof Element)) return;
+            if (node.matches(".reveal, .reveal-scale")) {
+              if (!node.classList.contains("visible")) {
+                if (!reveal(node)) ioRef?.observe(node);
+              }
+            }
+            processNewElements(node);
+          });
+        }
+      });
+      moRef.observe(document.body, { childList: true, subtree: true });
+    }, 0);
 
     return () => {
-      io.disconnect();
-      mo.disconnect();
+      clearTimeout(timeoutId);
+      ioRef?.disconnect();
+      moRef?.disconnect();
     };
   }, []);
 
