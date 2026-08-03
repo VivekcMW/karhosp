@@ -42,14 +42,14 @@ export default function DoctorCard({
           <h3 className="font-bold text-stone-800 text-lg leading-tight text-center">
             {doc.name}
           </h3>
-          <p className="text-[#0f766e] font-semibold text-sm text-center">{doc.spec}</p>
+          <p className="text-primary font-semibold text-sm text-center">{doc.spec}</p>
           <p className="text-stone-400 text-xs text-center leading-relaxed break-words hyphens-auto">{doc.qual}</p>
           <div className="flex items-center justify-center gap-3 mt-2">
             <span className="text-xs text-stone-500">
               <span className="font-bold text-stone-700">{doc.exp}+</span> {t("yrsExp")}
             </span>
             <span className="w-px h-3.5 bg-stone-200" />
-            <div className="flex items-center gap-1 text-xs text-[#0f766e] font-medium">
+            <div className="flex items-center gap-1 text-xs text-primary font-medium">
               <Calendar className="w-3 h-3 shrink-0" />
               <span>{doc.consults}</span>
             </div>
@@ -61,7 +61,7 @@ export default function DoctorCard({
       <div className="px-5 pb-5 mt-auto">
         <Link
           href={lp("/appointments")}
-          className="w-full flex items-center justify-center gap-1.5 bg-[#0f766e] hover:bg-[#0d6b63] text-white text-sm font-semibold py-3 rounded-md transition-colors"
+          className="w-full flex items-center justify-center gap-1.5 bg-primary hover:bg-primary-hover text-white text-sm font-semibold py-3 rounded-md transition-colors"
         >
           <Calendar className="w-4 h-4 shrink-0" />
           {t("book")}

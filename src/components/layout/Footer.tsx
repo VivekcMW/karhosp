@@ -12,7 +12,7 @@ export default function Footer() {
   const localePath = (href: string) => `/${locale}${href}`;
 
   return (
-    <footer className="bg-[#0f766e] text-white">
+    <footer className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand — Coastal Wave Eye logo (light variant for teal background) */}

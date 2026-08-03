@@ -12,7 +12,7 @@ export default function AppointmentsPage() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-gradient-to-br from-[#0f766e] to-[#0d9488] py-12 sm:py-16 text-white text-center">
+      <section className="bg-gradient-to-br from-primary to-teal-500 py-12 sm:py-16 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <Calendar className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-4 text-teal-200" />
           <h1 className="hero-title text-2xl sm:text-3xl md:text-4xl font-bold mb-3">{t("pageTitle")}</h1>
@@ -44,10 +44,10 @@ export default function AppointmentsPage() {
           {/* Call CTA — secondary */}
           <a
             href="tel:+919019725332"
-            className="flex items-center gap-4 w-full bg-white hover:bg-[#f0fdfa] active:scale-[0.98] text-stone-800 font-semibold px-6 py-5 rounded-2xl shadow-sm border border-stone-100 hover:border-teal-200 transition-all duration-200 group"
+            className="flex items-center gap-4 w-full bg-white hover:bg-primary-light active:scale-[0.98] text-stone-800 font-semibold px-6 py-5 rounded-2xl shadow-sm border border-stone-100 hover:border-teal-200 transition-all duration-200 group"
           >
-            <span className="w-12 h-12 bg-[#f0fdfa] rounded-xl flex items-center justify-center shrink-0">
-              <Phone className="w-6 h-6 text-[#0f766e]" />
+            <span className="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center shrink-0">
+              <Phone className="w-6 h-6 text-primary" />
             </span>
             <div className="text-left">
               <p className="text-base font-bold leading-tight">{t("callDirectly")}</p>
@@ -60,7 +60,7 @@ export default function AppointmentsPage() {
           <div className="bg-white rounded-2xl border border-stone-100 shadow-sm px-6 py-5 space-y-4 mt-2">
             <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider">{t("details")}</p>
             <div className="flex items-start gap-3 text-sm text-stone-600">
-              <Clock className="w-4 h-4 text-[#0f766e] mt-0.5 shrink-0" />
+              <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <div>
                 <p className="font-medium text-stone-800">{t("workingHours")}</p>
                 <p>{tc("hoursValue")}</p>
@@ -71,7 +71,7 @@ export default function AppointmentsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 text-sm text-stone-600">
-              <MapPin className="w-4 h-4 text-[#0f766e] mt-0.5 shrink-0" />
+              <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <div>
                 <p className="font-medium text-stone-800">{t("location")}</p>
                 <p>{t("addressLine1")}</p>
@@ -80,7 +80,7 @@ export default function AppointmentsPage() {
                   href="https://www.google.com/maps/search/?api=1&query=Karwar+Eye+Hospital+Gurumath+road+Kajubag+Karwar+Karnataka+581301"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[#0f766e] hover:text-[#0d6b63] text-xs font-medium transition-colors"
+                  className="inline-flex items-center gap-1 text-primary hover:text-primary-hover text-xs font-medium transition-colors"
                 >
                   <MapPin className="w-3.5 h-3.5" />
                   {t("getDirections")}

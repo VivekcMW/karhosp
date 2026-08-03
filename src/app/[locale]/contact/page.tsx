@@ -8,7 +8,7 @@ export default function ContactPage() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-gradient-to-br from-[#0f766e] to-[#0d9488] py-12 sm:py-16 text-white text-center">
+      <section className="bg-gradient-to-br from-primary to-teal-500 py-12 sm:py-16 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <MapPin className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-4 text-teal-200" />
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">{t("pageTitle")}</h1>
@@ -22,8 +22,8 @@ export default function ContactPage() {
           {/* Info cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="bg-white rounded-2xl p-6 border border-stone-100 flex gap-4 items-start">
-              <div className="w-11 h-11 rounded-xl bg-[#f0fdfa] flex items-center justify-center shrink-0">
-                <MapPin className="w-5 h-5 text-[#0f766e]" />
+              <div className="w-11 h-11 rounded-xl bg-primary-light flex items-center justify-center shrink-0">
+                <MapPin className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <p className="font-semibold text-stone-800 mb-1">{t("address")}</p>
@@ -32,7 +32,7 @@ export default function ContactPage() {
                   href="https://www.google.com/maps/search/?api=1&query=Karwar+Eye+Hospital+Gurumath+road+Kajubag+Karwar+Karnataka+581301"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[#0f766e] hover:text-[#0d6b63] text-xs font-medium transition-colors"
+                  className="inline-flex items-center gap-1 text-primary hover:text-primary-hover text-xs font-medium transition-colors"
                 >
                   <MapPin className="w-3.5 h-3.5" />
                   {t("viewOnMap")}
@@ -46,7 +46,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="font-semibold text-stone-800 mb-1">{t("phone")}</p>
-                <a href="tel:+919019725332" className="text-stone-500 text-sm hover:text-[#0f766e] font-medium">+91 90197 25332</a>
+                <a href="tel:+919019725332" className="text-stone-500 text-sm hover:text-primary font-medium">+91 90197 25332</a>
               </div>
             </div>
 
@@ -56,7 +56,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="font-semibold text-stone-800 mb-1">{t("email")}</p>
-                <a href="mailto:karwareyeclinic52@gmail.com" className="text-stone-500 text-sm hover:text-[#0f766e] break-all">karwareyeclinic52@gmail.com</a>
+                <a href="mailto:karwareyeclinic52@gmail.com" className="text-stone-500 text-sm hover:text-primary break-all">karwareyeclinic52@gmail.com</a>
               </div>
             </div>
 

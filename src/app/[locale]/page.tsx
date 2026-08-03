@@ -73,7 +73,7 @@ export default function HomePage() {
           />
         </video>
         {/* Dark gradient overlay so text stays readable */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f766e]/80 via-[#0d9488]/70 to-[#0a4a45]/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-teal-500/70 to-primary-deep/90" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 md:py-28">
           <div className="max-w-3xl mx-auto text-center">
             <span className="hero-badge inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-medium px-3 py-1.5 rounded-full mb-5 sm:mb-6">
@@ -116,7 +116,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
           {stats.map(({ value, label }, i) => (
             <div key={label} className={`reveal reveal-d${i + 1} p-3 sm:p-4`}>
-              <p className="text-2xl sm:text-3xl font-bold text-[#0f766e]">
+              <p className="text-2xl sm:text-3xl font-bold text-primary">
                 <StatCounter value={value} />
               </p>
               <p className="text-xs sm:text-sm text-stone-500 mt-1">{label}</p>

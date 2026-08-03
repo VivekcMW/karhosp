@@ -25,17 +25,22 @@
   --font-sans: var(--font-poppins);
 
   /* Brand palette — aligned with logo */
-  --color-primary:        #0f766e;
-  --color-primary-hover:  #0d6b63;
-  --color-primary-deep:   #084c47;
-  --color-primary-light:  #f0fdfa;
-  --color-iris:           #5eead4;
-  --color-secondary:      #d97706;
-  --color-accent:         #14b8a6;
-  --color-muted:          #f1f5f9;
-  --color-muted-fg:       #64748b;
-  --color-border:         #e2e8f0;
-  --color-surface:        #ffffff;
+  --color-primary: #0f766e;
+  --color-primary-hover: #0d6b63;
+  --color-primary-deep: #084c47;
+  --color-primary-light: #f0fdfa;
+  --color-iris: #5eead4;
+  --color-secondary: #d97706;
+  --color-accent: #14b8a6;
+  --color-muted: #f1f5f9;
+  --color-muted-fg: #64748b;
+  --color-border: #e2e8f0;
+  --color-surface: #ffffff;
+
+  /* Gradient colors for from-*/to-* utilities */
+  --color-gradient-teal-start: #0f766e;
+  --color-gradient-teal-mid: #0d9488;
+  --color-gradient-teal-end: #0a4a45;
 
   /* Custom breakpoint: xs = 480px (not in Tailwind defaults) */
   --breakpoint-xs: 30rem;
