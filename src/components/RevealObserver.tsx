@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Mounts an IntersectionObserver that adds the `.visible` class
@@ -16,13 +16,21 @@ import { useEffect } from "react";
  * catches every element whenever it actually appears.
  */
 export default function RevealObserver() {
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Mark as hydrated after initial render
   useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    // Don't run until after hydration
+    if (!isHydrated) return;
+
     let ioRef: IntersectionObserver | null = null;
     let moRef: MutationObserver | null = null;
 
-    // Defer execution to ensure hydration is complete
-    const timeoutId = setTimeout(() => {
-      document.documentElement.dataset.revealReady = "true";
+    document.documentElement.dataset.revealReady = "true";
 
       const reveal = (el: Element) => {
         const rect = el.getBoundingClientRect();
@@ -80,14 +88,12 @@ export default function RevealObserver() {
         }
       });
       moRef.observe(document.body, { childList: true, subtree: true });
-    }, 0);
 
     return () => {
-      clearTimeout(timeoutId);
       ioRef?.disconnect();
       moRef?.disconnect();
     };
-  }, []);
+  }, [isHydrated]);
 
   return null;
 }
