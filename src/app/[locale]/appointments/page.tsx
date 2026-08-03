@@ -89,7 +89,7 @@ export default function AppointmentsPage() {
             </div>
           </div>
 
-          <p className="text-center text-xs text-stone-400 pt-1">
+          <p className="text-center text-sm text-stone-500 pt-1">
             {t("note")}
           </p>
         </div>
