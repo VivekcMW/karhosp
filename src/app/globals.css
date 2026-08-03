@@ -100,12 +100,40 @@ textarea {
 /* Prevent any element from causing horizontal scroll */
 img, video, iframe, embed, object {
   max-width: 100%;
+  height: auto;
 }
 
 /* Long words / emails / URLs break inside narrow containers */
 p, li, h1, h2, h3, h4, h5, h6, a, span {
   overflow-wrap: break-word;
   word-break: break-word;
+}
+
+/* Enable hyphens for better text wrapping */
+.hyphens-auto {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Ensure all images use object-fit correctly */
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Minimum touch target size for accessibility (44x44px recommended) */
+button, a[role="button"], [role="button"] {
+  min-height: 44px;
+}
+
+/* Prevent text size adjustment on orientation change (iOS) */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Scrollbar hidden utility (used in gallery filter / lightbox thumbnails) */

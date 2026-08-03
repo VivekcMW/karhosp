@@ -43,7 +43,7 @@ export default function DoctorCard({
             {doc.name}
           </h3>
           <p className="text-[#0f766e] font-semibold text-sm text-center">{doc.spec}</p>
-          <p className="text-stone-400 text-xs text-center leading-snug">{doc.qual}</p>
+          <p className="text-stone-400 text-xs text-center leading-relaxed break-words hyphens-auto">{doc.qual}</p>
           <div className="flex items-center justify-center gap-3 mt-2">
             <span className="text-xs text-stone-500">
               <span className="font-bold text-stone-700">{doc.exp}+</span> {t("yrsExp")}
