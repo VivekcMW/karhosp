@@ -48,11 +48,6 @@ export default function DoctorCard({
             <span className="text-xs text-stone-500">
               <span className="font-bold text-stone-700">{doc.exp}+</span> {t("yrsExp")}
             </span>
-            <span className="w-px h-3.5 bg-stone-200" />
-            <div className="flex items-center gap-1 text-xs text-primary font-medium">
-              <Calendar className="w-3 h-3 shrink-0" />
-              <span>{doc.consults}</span>
-            </div>
           </div>
         </div>
       </div>
