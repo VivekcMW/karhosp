@@ -62,38 +62,18 @@
   },
   "doctorsData": {
     "d1": {
-      "spec": "Cataract & Squint Specialist",
-      "qual": "MBBS, MS, FIGO — Sankara Eye Hospital",
+      "spec": "Cataract & Refractive Surgery Specialist",
+      "qual": "MBBS (Yenepoya Medical College), D.O (Kasturba Medical College), DNB, Fellowship in Phaco-Refractive and Cataract Surgery (RGUHS-Nethradhama)",
       "consults": "All Days"
     },
     "d2": {
-      "spec": "Cataract & Medical Retina Specialist",
-      "qual": "MBBS, MS, DNB, Fellowship in Medical Retina — Aravind Eye Hospitals",
+      "spec": "Medical Retina & Cataract Specialist",
+      "qual": "MBBS (Goa Medical College), MS (Goa Medical College), DNB, Fellowship in Phaco-Refractive Surgery (RGUHS-Nethradhama), Fellowship in Medical Retina (Arvind Eye Hospitals)",
       "consults": "All Days"
     },
     "d3": {
-      "spec": "Cataract & Glaucoma Surgeon",
-      "qual": "MBBS, D.O, DNB, FPRS",
-      "consults": "All Days"
-    },
-    "d4": {
-      "spec": "Senior Cataract Surgeon",
-      "qual": "MBBS, MS Ophthalmology, FICO",
-      "consults": "All Days"
-    },
-    "d5": {
-      "spec": "Vitreoretinal Specialist",
-      "qual": "MBBS, MS, Fellowship in Vitreo Retina — LV Prasad",
-      "consults": "Mon, Wed, Fri"
-    },
-    "d6": {
-      "spec": "Medical Retina Consultant",
-      "qual": "MBBS, DNB, FRCS (Glasgow)",
-      "consults": "Tue, Thu, Sat"
-    },
-    "d7": {
-      "spec": "Pediatric Ophthalmology & Squint Specialist",
-      "qual": "MBBS, MS, Fellowship in Pediatric Ophthalmology",
+      "spec": "Cataract & Squint Specialist",
+      "qual": "MBBS, MS, FIGO (Fellowship in General Ophthalmology) — Sankara Eye Hospital",
       "consults": "All Days"
     }
   },

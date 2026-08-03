@@ -21,7 +21,7 @@ export default function HomePage() {
     { value: "14+", label: t("stats.years") },
     { value: "15,000+", label: t("stats.patients") },
     { value: "5,000+", label: t("stats.surgeries") },
-    { value: "6", label: t("stats.doctors") },
+    { value: "3", label: t("stats.doctors") },
   ];
 
   const services = [
