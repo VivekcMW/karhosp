@@ -25,11 +25,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  icons: {
-    icon: "/logos/logo-wave-light.svg",
-    shortcut: "/logos/logo-wave-light.svg",
-    apple: "/logos/logo-wave-light.svg",
-  },
   openGraph: {
     title: "Karwar Eye Hospital | Best Eye Care in Karwar, Karnataka",
     description: "World-class eye care in Karwar. Expert ophthalmologists, advanced technology, compassionate care. Specializing in Cataract, LASIK, Glaucoma & Retina treatments.",
