@@ -75,6 +75,26 @@
       "spec": "Cataract & Glaucoma Surgeon",
       "qual": "MBBS, D.O, DNB, FPRS",
       "consults": "All Days"
+    },
+    "d4": {
+      "spec": "Senior Cataract Surgeon",
+      "qual": "MBBS, MS Ophthalmology, FICO",
+      "consults": "All Days"
+    },
+    "d5": {
+      "spec": "Vitreoretinal Specialist",
+      "qual": "MBBS, MS, Fellowship in Vitreo Retina — LV Prasad",
+      "consults": "Mon, Wed, Fri"
+    },
+    "d6": {
+      "spec": "Medical Retina Consultant",
+      "qual": "MBBS, DNB, FRCS (Glasgow)",
+      "consults": "Tue, Thu, Sat"
+    },
+    "d7": {
+      "spec": "Pediatric Ophthalmology & Squint Specialist",
+      "qual": "MBBS, MS, Fellowship in Pediatric Ophthalmology",
+      "consults": "All Days"
     }
   },
   "doctorCard": {
@@ -163,11 +183,18 @@
   },
   "doctors": {
     "pageTitle": "Our Doctors",
-    "pageSubtitle": "Qualified, experienced, and compassionate eye specialists",
+    "pageSubtitle": "Meet Our Eye Care Specialists",
+    "intro": "At Karwar Eye Hospital, our team of highly skilled and experienced ophthalmologists is dedicated to providing advanced eye care across various specialties. With expertise in Cataract Surgery, Retina Care, Glaucoma Management, and Pediatric Ophthalmology, our doctors are committed to excellence in clinical practice and patient care. Their compassionate approach and innovative treatments ensure that patients receive the highest quality of eye care.",
     "consults": "Consultation Days",
     "exp": "years experience",
-    "consultCta": "Want to consult one of our specialists?",
-    "bookAppointment": "Book an Appointment"
+    "consultCta": "Need a consultation? Book an appointment with our specialists",
+    "bookAppointment": "Book an Appointment",
+    "specialties": {
+      "cataract": "Cataract Specialists",
+      "retina": "Retina Specialists",
+      "glaucoma": "Glaucoma Specialists",
+      "pediatric": "Pediatric Ophthalmology"
+    }
   },
   "about": {
     "pageTitle": "About Karwar Eye Hospital",
@@ -203,14 +230,14 @@
     "details": "Details",
     "workingHours": "Working Hours",
     "location": "Location",
-    "addressLine1": "Karwar Eye Hospital, Karwar,",
-    "addressLine2": "Uttara Kannada District, Karnataka – 581301"
+    "addressLine1": "Karwar Eye Hospital, Gurumath road, Kajubag,",
+    "addressLine2": "Karwar, Karnataka – 581301"
   },
   "contact": {
     "pageTitle": "Contact Us",
     "pageSubtitle": "We're here to help — reach out to us anytime",
     "address": "Address",
-    "addressValue": "Karwar Eye Hospital, Karwar, Uttara Kannada District, Karnataka – 581301",
+    "addressValue": "Karwar Eye Hospital, Gurumath road, Kajubag, Karwar, Karnataka – 581301",
     "phone": "Phone",
     "email": "Email",
     "hours": "Working Hours",
@@ -264,7 +291,8 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
     "rights": "© {year} Karwar Eye Hospital. All rights reserved.",
-    "instagramAria": "Karwar Eye Hospital on Instagram"
+    "instagramAria": "Karwar Eye Hospital on Instagram",
+    "facebookAria": "Karwar Eye Hospital on Facebook"
   },
   "empanelments": {
     "badge": "Trusted Coverage",
