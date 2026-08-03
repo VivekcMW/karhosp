@@ -37,7 +37,7 @@
   --color-border: #e2e8f0;
   --color-surface: #ffffff;
 
-  /* Gradient colors for from-*/to-* utilities */
+  /* Gradient colors for from-* and to-* utilities */
   --color-gradient-teal-start: #0f766e;
   --color-gradient-teal-mid: #0d9488;
   --color-gradient-teal-end: #0a4a45;
