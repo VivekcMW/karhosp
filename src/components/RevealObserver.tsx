@@ -29,8 +29,11 @@ export default function RevealObserver() {
 
     let ioRef: IntersectionObserver | null = null;
     let moRef: MutationObserver | null = null;
+    let rafId: number | null = null;
 
-    document.documentElement.dataset.revealReady = "true";
+    // Use requestAnimationFrame to defer until after browser paint
+    rafId = requestAnimationFrame(() => {
+      document.documentElement.dataset.revealReady = "true";
 
       const reveal = (el: Element) => {
         const rect = el.getBoundingClientRect();
@@ -88,8 +91,10 @@ export default function RevealObserver() {
         }
       });
       moRef.observe(document.body, { childList: true, subtree: true });
+    });
 
     return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
       ioRef?.disconnect();
       moRef?.disconnect();
     };
